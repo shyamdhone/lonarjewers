@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Custom CSS */
+@layer base {
+  :root {
+    --gold: #C9A44C;
+    --dark: #1A1A1A;
+    --cream: #F5F1ED;
+    --light: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    color: #1A1A1A;
+    background-color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+}
+
+/* Button and Component Styles */
+.btn-luxury {
+  padding: 0.75rem 2rem;
+  background-color: #C9A44C;
+  color: #1A1A1A;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-luxury:hover {
+  box-shadow: 0 20px 60px rgba(201, 164, 76, 0.3);
+  transform: scale(1.05);
+}
+
+.btn-luxury:active {
+  transform: scale(0.95);
+}
+
+.btn-outline {
+  padding: 0.75rem 2rem;
+  border: 2px solid #C9A44C;
+  color: #C9A44C;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: #C9A44C;
+  color: #1A1A1A;
+}
+
+.btn-outline-light {
+  padding: 0.75rem 2rem;
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+}
+
+.btn-dark {
+  padding: 0.75rem 2rem;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+/* Card Styles */
+.card-luxury {
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #F5F1ED;
+  transition: all 0.3s ease;
+}
+
+.card-luxury:hover {
+  border-color: #C9A44C;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.card-dark {
+  background-color: #1A1A1A;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Form Styles */
+.input-luxury {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #F5F1ED;
+  border-radius: 0.5rem;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.input-luxury::placeholder {
+  color: #1A1A1A;
+  opacity: 0.4;
+}
+
+.input-luxury:focus {
+  outline: none;
+  border-color: #C9A44C;
+  box-shadow: 0 0 0 3px rgba(201, 164, 76, 0.1);
+}
+
+.textarea-luxury {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #F5F1ED;
+  border-radius: 0.5rem;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  font-family: 'Poppins', sans-serif;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.textarea-luxury::placeholder {
+  color: #1A1A1A;
+  opacity: 0.4;
+}
+
+.textarea-luxury:focus {
+  outline: none;
+  border-color: #C9A44C;
+  box-shadow: 0 0 0 3px rgba(201, 164, 76, 0.1);
+}
+
+/* Glass Effect */
+.glass-effect {
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-effect-dark {
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Badge Styles */
+.badge-gold {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  background-color: #C9A44C;
+  color: #1A1A1A;
+}
+
+.badge-cream {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  background-color: #F5F1ED;
+  color: #1A1A1A;
+}
+
+.badge-dark {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+}
