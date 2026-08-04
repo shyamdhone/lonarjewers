@@ -35,7 +35,7 @@ import {
   HiOutlineHeart 
 } from 'react-icons/hi';
 
-import contactImg from "../assets/images/contact.jpg";
+import contactImg from "../assets/images/Contact.jpg";
 
 export const Contact = () => {
   // Form State
