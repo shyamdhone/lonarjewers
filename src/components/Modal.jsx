@@ -1,18 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// ==========================================
+// UTILITY: WhatsApp Luxury Order Generator
+// ==========================================
+export const sendWhatsAppEnquiry = ({
+  product,
+  quantity = 1,
+  phoneNumber = '919876543210',
+  storeName = 'SHREEJI JEWELLERS',
+}) => {
+  if (!product) return;
+
+  const title = product.name || 'Exquisite Fine Piece';
+  const collection = product.collection || 'Haute Joaillerie';
+  const category = product.category || 'Fine Jewellery';
+  const price = product.price
+    ? `₹${product.price.toLocaleString('en-IN')}`
+    : 'Price on Request';
+  const purity = product.purity || '22K Gold (916)';
+  const weight = product.weight || 'N/A';
+  const pageUrl = window.location.href;
+  const timestamp = new Date().toLocaleString('en-IN', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+
+  const message = `━━━━━━━━━━━━━━━━━━━━━━
+✨ ${storeName.toUpperCase()} ✨
+Luxury Jewellery Reservation
+━━━━━━━━━━━━━━━━━━━━━━
+
+📌 *PRODUCT DETAILS*
+• *Item:* ${title}
+• *Collection:* ${collection}
+• *Category:* ${category}
+• *Gold Purity:* ${purity}
+• *Metal Weight:* ${weight}
+• *Estimated Price:* ${price}
+• *Requested Qty:* ${quantity}
+
+━━━━━━━━━━━━━━━━━━━━━━
+⏱️ *Timestamp:* ${timestamp}
+🔗 *Product Link:* ${pageUrl}
+
+Please connect me with a luxury concierge to confirm:
+✔ Live Gold Rate Breakdown
+✔ Custom Making Charges & Offers
+✔ BIS Hallmark Certificate Details
+✔ Direct Store Pickup / Insured Delivery
+
+Thank You.`;
+
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+};
+
+// ==========================================
+// COMPONENT: Base Luxury Modal
+// ==========================================
 export const Modal = ({ isOpen, onClose, title, children }) => {
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
       document.body.style.overflow = 'unset';
     }
 
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   return (
     <AnimatePresence>
@@ -20,7 +86,7 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/70 backdrop-blur-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -73,15 +139,33 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
   );
 };
 
-export const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
+// ==========================================
+// COMPONENT: Quick View Modal
+// ==========================================
+export const QuickViewModal = ({
+  product,
+  isOpen,
+  onClose,
+  onToggleWishlist,
+  isWishlisted = false,
+}) => {
   const [quantity, setQuantity] = useState(1);
-  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setQuantity(1);
+    }
+  }, [isOpen]);
 
   const fallbackImage =
     'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop';
 
+  const handleWhatsAppReservation = () => {
+    sendWhatsAppEnquiry({ product, quantity });
+  };
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Quick View">
+    <Modal isOpen={isOpen} onClose={onClose} title="High Jewellery Quick View">
       {product && (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
           {/* Left Column: Image (5 Grid Columns) */}
@@ -122,7 +206,7 @@ export const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
                 {product?.category || 'Fine Jewellery'}
               </motion.p>
 
-              {/* Title - Clean Break and Wraps Smoothly */}
+              {/* Title */}
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#2C2A29] mb-2 leading-tight break-words">
                 {product?.name || 'Exquisite Piece'}
               </h3>
@@ -141,25 +225,46 @@ export const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
                 transition={{ delay: 0.25 }}
               >
                 <p className="text-[10px] font-bold text-[#8C6D2B] uppercase tracking-widest mb-2">
-                  Product Specifications
+                  Certified Product Specifications
                 </p>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   {product?.specs && product.specs.length > 0 ? (
                     product.specs.map((spec, idx) => (
-                      <div key={idx} className="flex justify-between border-b border-[#E8DFC8]/50 pb-1">
+                      <div
+                        key={idx}
+                        className="flex justify-between border-b border-[#E8DFC8]/50 pb-1"
+                      >
                         <span className="text-[#6B655F]">{spec.label}</span>
-                        <span className="font-semibold text-[#2C2A29]">{spec.value}</span>
+                        <span className="font-semibold text-[#2C2A29]">
+                          {spec.value}
+                        </span>
                       </div>
                     ))
                   ) : (
                     <>
-                      <div className="flex justify-between">
-                        <span className="text-[#6B655F]">Purity:</span>
-                        <span className="font-semibold text-[#2C2A29]">22K</span>
+                      <div className="flex justify-between border-b border-[#E8DFC8]/50 pb-1">
+                        <span className="text-[#6B655F]">Gold Purity:</span>
+                        <span className="font-semibold text-[#2C2A29]">
+                          {product?.purity || '22K (916)'}
+                        </span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-[#6B655F]">Weight:</span>
-                        <span className="font-semibold text-[#2C2A29]">5g</span>
+                      <div className="flex justify-between border-b border-[#E8DFC8]/50 pb-1">
+                        <span className="text-[#6B655F]">Gross Weight:</span>
+                        <span className="font-semibold text-[#2C2A29]">
+                          {product?.weight || '14.5g'}
+                        </span>
+                      </div>
+                      <div className="flex justify-between border-b border-[#E8DFC8]/50 pb-1">
+                        <span className="text-[#6B655F]">Certification:</span>
+                        <span className="font-semibold text-[#2C2A29]">
+                          BIS 100% Hallmarked
+                        </span>
+                      </div>
+                      <div className="flex justify-between border-b border-[#E8DFC8]/50 pb-1">
+                        <span className="text-[#6B655F]">Availability:</span>
+                        <span className="font-semibold text-emerald-700">
+                          In Stock
+                        </span>
                       </div>
                     </>
                   )}
@@ -175,17 +280,20 @@ export const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
               >
                 <div>
                   <span className="text-[10px] text-[#8C6D2B] block uppercase tracking-wider font-semibold">
-                    Price
+                    Estimated Price
                   </span>
                   <p className="text-2xl sm:text-3xl font-serif font-bold text-[#2C2A29]">
-                    ₹{product?.price ? product.price.toLocaleString() : '0'}
+                    ₹
+                    {product?.price
+                      ? product.price.toLocaleString('en-IN')
+                      : 'On Request'}
                   </p>
                 </div>
 
                 <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-full border border-[#E8DFC8] shadow-sm">
                   <span className="text-[#C5A059] text-xs">★</span>
                   <span className="text-xs font-semibold text-[#2C2A29]">
-                    {product?.rating || '4.8'}
+                    {product?.rating || '4.9'}
                   </span>
                   <span className="text-[11px] text-[#6B655F]">/ 5</span>
                 </div>
@@ -223,32 +331,33 @@ export const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-2.5"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
               <motion.button
-                onClick={() => onAddToCart && onAddToCart(product, quantity)}
-                className="w-full py-3 rounded-xl text-xs font-semibold tracking-wider uppercase text-white bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#A37E36] hover:brightness-105 shadow-[0_4px_16px_rgba(197,160,89,0.3)] transition-all duration-300"
+                onClick={handleWhatsAppReservation}
+                className="w-full py-3.5 rounded-xl text-xs font-bold tracking-widest uppercase text-white bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#A37E36] hover:brightness-105 shadow-[0_4px_16px_rgba(197,160,89,0.3)] transition-all duration-300 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Add to Cart
+                <span>Reserve via WhatsApp Concierge</span>
+                <span className="text-sm">💬</span>
               </motion.button>
 
               <motion.button
-                onClick={() => setIsFavorite(!isFavorite)}
+                onClick={() => onToggleWishlist && onToggleWishlist(product)}
                 className={`w-full py-2.5 rounded-xl text-xs font-semibold tracking-wider uppercase border transition-all duration-300 flex items-center justify-center gap-2 ${
-                  isFavorite
+                  isWishlisted
                     ? 'bg-[#C5A059]/10 text-[#8C6D2B] border-[#C5A059]'
                     : 'bg-white text-[#2C2A29] border-[#E8DFC8] hover:border-[#C5A059] hover:text-[#8C6D2B]'
                 }`}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span>{isFavorite ? '❤️' : '🤍'}</span>
-                {isFavorite ? 'Added to Wishlist' : 'Add to Wishlist'}
+                <span>{isWishlisted ? '❤️' : '🤍'}</span>
+                {isWishlisted ? 'In Your Wishlist' : 'Add to Wishlist'}
               </motion.button>
             </motion.div>
           </motion.div>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-
 // --- React Icons Imports ---
 import { 
   FaInstagram, 
@@ -23,7 +22,9 @@ import {
   FaPaperPlane,
   FaChevronDown,
   FaArrowRight,
-  FaCheckCircle
+  FaCheckCircle,
+  FaExternalLinkAlt,
+  FaHeart
 } from 'react-icons/fa';
 
 import { 
@@ -69,10 +70,10 @@ export const Contact = () => {
       return;
     }
 
-    const whatsappNumber = '919876543210'; // Replace with target business WhatsApp number
+    const whatsappNumber = '+918605505091';
     const formattedMessage = 
 `---------------------------------
-*Hello Shree Lonar Jewellers,*
+*Hello Shreeji Jewellers,*
 
 *Name:* ${formData.name}
 *Email:* ${formData.email}
@@ -120,134 +121,23 @@ ${formData.message}
     }
   };
 
-  // Data Collections
-  const socialLinks = [
-    {
-      name: 'Instagram',
-      handle: '@shreelonarjewellers',
-      icon: <FaInstagram className="w-5 h-5 text-[#D4AF37]" />,
-      url: 'https://instagram.com'
-    },
-    {
-      name: 'YouTube',
-      handle: '@shreelonarjewellers',
-      icon: <FaYoutube className="w-5 h-5 text-[#D4AF37]" />,
-      url: 'https://youtube.com'
-    },
-    {
-      name: 'Facebook',
-      handle: 'Shree Lonar Jewellers',
-      icon: <FaFacebookF className="w-5 h-5 text-[#D4AF37]" />,
-      url: 'https://facebook.com'
-    },
-    {
-      name: 'WhatsApp',
-      handle: '+91 XXXXX XXXXX',
-      icon: <FaWhatsapp className="w-5 h-5 text-[#D4AF37]" />,
-      url: 'https://wa.me/919876543210'
-    },
-    {
-      name: 'Email',
-      handle: 'info@shreelonar.com',
-      icon: <FaEnvelope className="w-5 h-5 text-[#D4AF37]" />,
-      url: 'mailto:info@shreelonar.com'
-    },
-    {
-      name: 'Phone',
-      handle: '+91 XXXXX XXXXX',
-      icon: <FaPhoneAlt className="w-5 h-5 text-[#D4AF37]" />,
-      url: 'tel:+919876543210'
-    }
-  ];
-
-  const quickActions = [
-    {
-      title: 'Book Appointment',
-      desc: 'Schedule a private consultation at our boutique',
-      icon: <FaCalendarCheck className="w-6 h-6 text-[#D4AF37]" />,
-      link: '#contact-form'
-    },
-    {
-      title: 'Request Callback',
-      desc: 'Speak directly with our senior jewellery advisor',
-      icon: <FaHeadset className="w-6 h-6 text-[#D4AF37]" />,
-      link: '#contact-form'
-    },
-    {
-      title: 'WhatsApp Chat',
-      desc: 'Instant messaging for immediate inquiries',
-      icon: <FaWhatsapp className="w-6 h-6 text-[#D4AF37]" />,
-      link: 'https://wa.me/919876543210'
-    },
-    {
-      title: 'Email Us',
-      desc: 'Drop us a detailed query or customized request',
-      icon: <FaEnvelope className="w-6 h-6 text-[#D4AF37]" />,
-      link: 'mailto:info@shreelonar.com'
-    },
-    {
-      title: 'Call Now',
-      desc: 'Direct hotline for assistance and orders',
-      icon: <FaPhoneAlt className="w-6 h-6 text-[#D4AF37]" />,
-      link: 'tel:+919876543210'
-    },
-    {
-      title: 'Visit Showroom',
-      desc: 'Experience our royal collections in person',
-      icon: <FaStore className="w-6 h-6 text-[#D4AF37]" />,
-      link: '#map-section'
-    }
-  ];
-
-  const faqItems = [
-    {
-      question: 'What is BIS Hallmark certification?',
-      answer: 'BIS (Bureau of Indian Standards) hallmark guarantees the purity and authenticity of gold and silver according to official national standards. Every piece at Shree Lonar is 100% hallmarked.'
-    },
-    {
-      question: 'Can I customize my jewellery design?',
-      answer: 'Absolutely. Our master artisans specialize in bespoke design. You can bring a reference sketch or collaborate with our team to sculpt your dream ornament from scratch.'
-    },
-    {
-      question: 'Do you provide safe home delivery?',
-      answer: 'Yes, we provide fully insured, tamper-proof global and nationwide shipping right to your doorstep with real-time transit tracking.'
-    },
-    {
-      question: 'How long does custom jewellery creation take?',
-      answer: 'Custom handcrafted creations generally take between 10 to 21 business days, depending on design complexity and stone sourcing requirements.'
-    },
-    {
-      question: 'Do you offer jewellery exchange and buyback options?',
-      answer: 'Yes, we offer transparent exchange and buyback policies based on real-time market gold/gem rates with zero hidden deductions.'
-    },
-    {
-      question: 'How do I book a private consultation appointment?',
-      answer: 'You can book an appointment by filling out the contact form above, selecting "In-Store Visit" as your contact method, or messaging us directly on WhatsApp.'
-    }
-  ];
-
-  const promiseBadges = [
-    { icon: <HiOutlineBadgeCheck className="w-8 h-8 text-[#D4AF37]" />, title: '100% Hallmarked', desc: 'Bureau of Indian Standards Certified' },
-    { icon: <HiOutlineSparkles className="w-8 h-8 text-[#D4AF37]" />, title: 'Certified Diamonds', desc: 'IGI & GIA Authenticated Stones' },
-    { icon: <HiOutlineCurrencyRupee className="w-8 h-8 text-[#D4AF37]" />, title: 'Transparent Pricing', desc: 'Detailed making charge transparency' },
-    { icon: <HiOutlineHeart className="w-8 h-8 text-[#D4AF37]" />, title: 'Lifetime Care', desc: 'Complimentary maintenance & polish' },
-    { icon: <HiOutlineShieldCheck className="w-8 h-8 text-[#D4AF37]" />, title: 'Secure Handling', desc: 'Insured transport and guaranteed safety' },
-    { icon: <HiOutlineClock className="w-8 h-8 text-[#D4AF37]" />, title: 'Trusted Since 2004', desc: 'Two decades of artistic heritage' }
-  ];
-
   return (
-    <div className="w-full bg-white text-[#111111] antialiased selection:bg-[#D4AF37] selection:text-white overflow-x-hidden">
+    <div className="w-full bg-[#FCFBFA] text-[#111111] antialiased selection:bg-[#D4AF37] selection:text-white overflow-x-hidden">
       
       {/* SECTION 1: LUXURY HERO */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a150c] via-black to-[#2c2211]">
         <div className="absolute inset-0 w-full h-full z-0">
           <img
             src={contactImg}
             alt="Shree Lonar Contact Hero"
-            className="w-full h-full object-cover object-center opacity-50 filter brightness-75 scale-105"
+            className="w-full h-full object-cover object-center opacity-45 filter brightness-75 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         </div>
+
+        {/* Decorative Glowing Orbs for Color & Vibrancy */}
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#D4AF37]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-600/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white space-y-6 pt-16">
           <motion.div
@@ -255,8 +145,8 @@ ${formData.message}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-xs uppercase tracking-[0.35em] text-[#D4AF37] border-b border-[#D4AF37]/40 pb-1 font-medium">
-              Shree Lonar Jewellers
+            <span className="text-xs uppercase tracking-[0.35em] text-[#D4AF37] bg-black/40 px-4 py-2 rounded-full border border-[#D4AF37]/40 font-medium shadow-md backdrop-blur-md">
+              ✨ Shreeji Jewellers • Hirdav Road Lonar ✨
             </span>
           </motion.div>
 
@@ -267,8 +157,8 @@ ${formData.message}
             className="text-4xl sm:text-6xl md:text-7xl font-serif font-extralight tracking-tight leading-tight"
           >
             Let's Create Something <br />
-            <span className="italic font-normal bg-gradient-to-r from-white via-[#FAF8F5] to-[#D4AF37] bg-clip-text text-transparent">
-              Beautiful Together
+            <span className="italic font-normal bg-gradient-to-r from-amber-200 via-amber-400 to-[#D4AF37] bg-clip-text text-transparent drop-shadow-sm">
+              Brilliant Together
             </span>
           </motion.h1>
 
@@ -278,7 +168,7 @@ ${formData.message}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-2xl mx-auto text-sm sm:text-base font-light text-neutral-300 leading-relaxed tracking-wide"
           >
-            Whether you are seeking bespoke bridal consultation, custom diamond crafting, or heirloom restoration, our master advisors are dedicated to serving you.
+            Step into a world of timeless craftsmanship. Connect with our expert advisors for bespoke bridal consultations and royal creations.
           </motion.p>
 
           <motion.div
@@ -289,15 +179,15 @@ ${formData.message}
           >
             <a
               href="#map-section"
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#D4AF37] text-black font-medium text-xs uppercase tracking-[0.2em] rounded-full hover:bg-white transition-all duration-300 shadow-lg shadow-[#D4AF37]/20"
+              className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#D4AF37] to-amber-500 text-black font-semibold text-xs uppercase tracking-[0.2em] rounded-full hover:from-white hover:to-amber-100 transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-0.5"
             >
               Visit Showroom
             </a>
             <a
               href="#contact-form"
-              className="w-full sm:w-auto px-8 py-3.5 bg-transparent border border-[#D4AF37]/50 text-white font-medium text-xs uppercase tracking-[0.2em] rounded-full hover:bg-white/10 transition-all duration-300"
+              className="w-full sm:w-auto px-8 py-3.5 bg-black/50 backdrop-blur-md border border-[#D4AF37]/60 text-white font-medium text-xs uppercase tracking-[0.2em] rounded-full hover:bg-[#D4AF37]/20 transition-all duration-300"
             >
-              Contact Us
+              Send Message
             </a>
           </motion.div>
         </div>
@@ -306,15 +196,15 @@ ${formData.message}
         <motion.div 
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-6 z-10 flex flex-col items-center gap-1.5 text-white/50 text-xs tracking-widest uppercase cursor-pointer"
+          className="absolute bottom-6 z-10 flex flex-col items-center gap-1.5 text-white/60 text-xs tracking-widest uppercase cursor-pointer"
         >
-          <span className="text-[10px] text-[#D4AF37]">Scroll</span>
+          <span className="text-[10px] text-[#D4AF37]">Explore</span>
           <FaChevronDown className="w-3.5 h-3.5 text-[#D4AF37]" />
         </motion.div>
       </section>
 
       {/* SECTION 2: LUXURY INFORMATION PANEL */}
-      <section className="py-20 md:py-28 bg-[#FAF8F5] relative">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-[#FAF8F5] via-[#FFFDF9] to-[#FAF8F5] relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <motion.div 
@@ -322,15 +212,15 @@ ${formData.message}
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-center max-w-2xl mx-auto mb-16 space-y-2"
+            className="text-center max-w-2xl mx-auto mb-16 space-y-3"
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
+            <span className="text-xs uppercase tracking-[0.3em] text-amber-600 font-bold bg-amber-100/60 px-3.5 py-1.5 rounded-full border border-amber-200">
               Boutique & Concierge
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif text-[#111111]">
               Contact Information
             </h2>
-            <div className="w-12 h-[1px] bg-[#D4AF37] mx-auto mt-2" />
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-[#D4AF37] mx-auto rounded-full mt-2" />
           </motion.div>
 
           <motion.div
@@ -345,42 +235,44 @@ ${formData.message}
               href="#map-section"
               variants={fadeInUp}
               whileHover={{ y: -6 }}
-              className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-[#D4AF37]/30 shadow-md shadow-stone-100 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group"
+              className="bg-white p-8 rounded-2xl border-2 border-[#D4AF37]/30 shadow-lg shadow-amber-900/5 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group relative overflow-hidden"
             >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-100/50 to-transparent rounded-bl-full pointer-events-none" />
               <div className="space-y-4">
-                <div className="p-3.5 bg-[#FAF8F5] w-fit rounded-xl border border-[#D4AF37]/20 group-hover:bg-[#D4AF37]/10 transition-colors">
+                <div className="p-3.5 bg-gradient-to-br from-amber-50 to-amber-100/60 w-fit rounded-xl border border-[#D4AF37]/30 group-hover:scale-110 transition-transform shadow-sm">
                   <FaMapMarkerAlt className="w-6 h-6 text-[#D4AF37]" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-[#111111]">Store Address</h3>
+                <h3 className="text-xl font-serif font-bold text-[#111111]">Showroom Address</h3>
                 <p className="text-xs sm:text-sm text-neutral-600 font-light leading-relaxed">
-                  123 Luxury Lane, Near Jewel Plaza,<br />
-                  Mumbai, Maharashtra 400001, India
+                  Hirdav Road, Lonar,<br />
+                  Maharashtra, India
                 </p>
               </div>
-              <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider pt-2 border-t border-neutral-100">
-                Click to Open Maps <FaArrowRight className="w-3 h-3" />
+              <span className="inline-flex items-center gap-2 text-xs font-bold text-[#D4AF37] uppercase tracking-wider pt-3 border-t border-neutral-100 group-hover:translate-x-1 transition-transform">
+                Open in Google Maps <FaArrowRight className="w-3 h-3" />
               </span>
             </motion.a>
 
             {/* Phone Numbers */}
             <motion.a
-              href="tel:+919876543210"
+              href="tel:+918605505091"
               variants={fadeInUp}
               whileHover={{ y: -6 }}
-              className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-[#D4AF37]/30 shadow-md shadow-stone-100 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group"
+              className="bg-white p-8 rounded-2xl border-2 border-[#D4AF37]/30 shadow-lg shadow-amber-900/5 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group relative overflow-hidden"
             >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-100/50 to-transparent rounded-bl-full pointer-events-none" />
               <div className="space-y-4">
-                <div className="p-3.5 bg-[#FAF8F5] w-fit rounded-xl border border-[#D4AF37]/20 group-hover:bg-[#D4AF37]/10 transition-colors">
+                <div className="p-3.5 bg-gradient-to-br from-amber-50 to-amber-100/60 w-fit rounded-xl border border-[#D4AF37]/30 group-hover:scale-110 transition-transform shadow-sm">
                   <FaPhoneAlt className="w-6 h-6 text-[#D4AF37]" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-[#111111]">Phone Numbers</h3>
+                <h3 className="text-xl font-serif font-bold text-[#111111]">Phone & WhatsApp</h3>
                 <div className="text-xs sm:text-sm text-neutral-600 font-light space-y-1">
-                  <p>+91 98765 43210 (Boutique)</p>
-                  <p>+91 22 1234 5678 (Corporate)</p>
+                  <p className="font-medium text-neutral-900">+91 86055 05091</p>
+                  <p className="text-xs text-amber-700/80 font-medium">Available for direct inquiries</p>
                 </div>
               </div>
-              <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider pt-2 border-t border-neutral-100">
-                Click to Call Directly <FaArrowRight className="w-3 h-3" />
+              <span className="inline-flex items-center gap-2 text-xs font-bold text-[#D4AF37] uppercase tracking-wider pt-3 border-t border-neutral-100 group-hover:translate-x-1 transition-transform">
+                Click to Call Now <FaArrowRight className="w-3 h-3" />
               </span>
             </motion.a>
 
@@ -389,10 +281,11 @@ ${formData.message}
               href="mailto:info@shreelonar.com"
               variants={fadeInUp}
               whileHover={{ y: -6 }}
-              className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-[#D4AF37]/30 shadow-md shadow-stone-100 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group"
+              className="bg-white p-8 rounded-2xl border-2 border-[#D4AF37]/30 shadow-lg shadow-amber-900/5 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group relative overflow-hidden"
             >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-100/50 to-transparent rounded-bl-full pointer-events-none" />
               <div className="space-y-4">
-                <div className="p-3.5 bg-[#FAF8F5] w-fit rounded-xl border border-[#D4AF37]/20 group-hover:bg-[#D4AF37]/10 transition-colors">
+                <div className="p-3.5 bg-gradient-to-br from-amber-50 to-amber-100/60 w-fit rounded-xl border border-[#D4AF37]/30 group-hover:scale-110 transition-transform shadow-sm">
                   <FaEnvelope className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-[#111111]">Email Addresses</h3>
@@ -401,7 +294,7 @@ ${formData.message}
                   <p>support@shreelonar.com</p>
                 </div>
               </div>
-              <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider pt-2 border-t border-neutral-100">
+              <span className="inline-flex items-center gap-2 text-xs font-bold text-[#D4AF37] uppercase tracking-wider pt-3 border-t border-neutral-100 group-hover:translate-x-1 transition-transform">
                 Click to Email Us <FaArrowRight className="w-3 h-3" />
               </span>
             </motion.a>
@@ -409,9 +302,9 @@ ${formData.message}
             {/* Business Hours */}
             <motion.div
               variants={fadeInUp}
-              className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-[#D4AF37]/30 shadow-md shadow-stone-100 space-y-4"
+              className="bg-white p-8 rounded-2xl border-2 border-[#D4AF37]/30 shadow-lg shadow-amber-900/5 space-y-4 relative overflow-hidden"
             >
-              <div className="p-3.5 bg-[#FAF8F5] w-fit rounded-xl border border-[#D4AF37]/20">
+              <div className="p-3.5 bg-gradient-to-br from-amber-50 to-amber-100/60 w-fit rounded-xl border border-[#D4AF37]/30 shadow-sm">
                 <FaClock className="w-6 h-6 text-[#D4AF37]" />
               </div>
               <h3 className="text-xl font-serif font-bold text-[#111111]">Showroom Hours</h3>
@@ -423,33 +316,34 @@ ${formData.message}
 
             {/* WhatsApp Direct */}
             <motion.a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918605505091"
               target="_blank"
               rel="noopener noreferrer"
               variants={fadeInUp}
               whileHover={{ y: -6 }}
-              className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-[#D4AF37]/30 shadow-md shadow-stone-100 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group"
+              className="bg-white p-8 rounded-2xl border-2 border-[#D4AF37]/30 shadow-lg shadow-amber-900/5 hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 group relative overflow-hidden"
             >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-green-100/50 to-transparent rounded-bl-full pointer-events-none" />
               <div className="space-y-4">
-                <div className="p-3.5 bg-[#FAF8F5] w-fit rounded-xl border border-[#D4AF37]/20 group-hover:bg-[#D4AF37]/10 transition-colors">
-                  <FaWhatsapp className="w-6 h-6 text-[#D4AF37]" />
+                <div className="p-3.5 bg-gradient-to-br from-green-50 to-green-100/60 w-fit rounded-xl border border-green-300 group-hover:scale-110 transition-transform shadow-sm">
+                  <FaWhatsapp className="w-6 h-6 text-green-600" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-[#111111]">WhatsApp Concierge</h3>
                 <p className="text-xs sm:text-sm text-neutral-600 font-light leading-relaxed">
-                  Fast support and real-time product catalogs available 24/7 on WhatsApp.
+                  Fast support and real-time live product catalogs available 24/7.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider pt-2 border-t border-neutral-100">
-                Click to WhatsApp <FaArrowRight className="w-3 h-3" />
+              <span className="inline-flex items-center gap-2 text-xs font-bold text-green-600 uppercase tracking-wider pt-3 border-t border-neutral-100 group-hover:translate-x-1 transition-transform">
+                Chat on WhatsApp <FaArrowRight className="w-3 h-3" />
               </span>
             </motion.a>
 
             {/* Official Website */}
             <motion.div
               variants={fadeInUp}
-              className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-[#D4AF37]/30 shadow-md shadow-stone-100 space-y-4"
+              className="bg-white p-8 rounded-2xl border-2 border-[#D4AF37]/30 shadow-lg shadow-amber-900/5 space-y-4 relative overflow-hidden"
             >
-              <div className="p-3.5 bg-[#FAF8F5] w-fit rounded-xl border border-[#D4AF37]/20">
+              <div className="p-3.5 bg-gradient-to-br from-amber-50 to-amber-100/60 w-fit rounded-xl border border-[#D4AF37]/30 shadow-sm">
                 <FaGlobe className="w-6 h-6 text-[#D4AF37]" />
               </div>
               <h3 className="text-xl font-serif font-bold text-[#111111]">Official Portal</h3>
@@ -459,6 +353,77 @@ ${formData.message}
             </motion.div>
           </motion.div>
 
+        </div>
+      </section>
+
+      {/* SECTION 2.5: INSTAGRAM PROFILE CARD (UPDATED WITH STATS) */}
+      <section className="py-16 bg-gradient-to-r from-amber-500 via-[#D4AF37] to-amber-600 text-black relative overflow-hidden shadow-xl">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-black/20 pointer-events-none" />
+        
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-white/95 backdrop-blur-xl p-8 sm:p-10 rounded-3xl shadow-2xl border border-white flex flex-col md:flex-row items-center justify-between gap-8"
+          >
+            {/* Instagram Profile Left Info */}
+            <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+              <div className="relative">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=300&fit=crop"
+                    alt="Shreeji Jewellers Instagram"
+                    className="w-full h-full object-cover rounded-full border-2 border-white"
+                  />
+                </div>
+                <div className="absolute bottom-0 right-0 bg-pink-600 text-white p-2 rounded-full shadow-md">
+                  <FaInstagram className="w-4 h-4" />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-center sm:justify-start gap-2">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#111111]">shreeji__jewellers_lonar</h3>
+                  <span className="text-blue-500 bg-blue-50 rounded-full p-0.5"><FaCheckCircle className="w-4 h-4" /></span>
+                </div>
+                <p className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Umesh Gherwara | Lonar 📍</p>
+                <p className="text-xs sm:text-sm text-neutral-600 font-light max-w-sm">
+                  ✨ Jewelry Wholesaler • Gold & Diamond Jewellery—Lonar's #1 • Retail & Wholesale Supply
+                </p>
+              </div>
+            </div>
+
+            {/* Instagram Follow Button / Action */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+              <div className="flex gap-4 text-center px-4 py-2 bg-neutral-50 rounded-2xl border border-neutral-200">
+                <div>
+                  <p className="text-sm font-bold text-neutral-900">31</p>
+                  <p className="text-[10px] text-neutral-500 uppercase tracking-wider">Posts</p>
+                </div>
+                <div className="border-r border-neutral-200" />
+                <div>
+                  <p className="text-sm font-bold text-neutral-900">392</p>
+                  <p className="text-[10px] text-neutral-500 uppercase tracking-wider">Followers</p>
+                </div>
+                <div className="border-r border-neutral-200" />
+                <div>
+                  <p className="text-sm font-bold text-neutral-900">130</p>
+                  <p className="text-[10px] text-neutral-500 uppercase tracking-wider">Following</p>
+                </div>
+              </div>
+
+              <a
+                href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-medium text-xs uppercase tracking-[0.2em] rounded-full hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group"
+              >
+                <FaInstagram className="w-4 h-4 group-hover:rotate-12 transition-transform" /> Follow on Instagram
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -473,16 +438,16 @@ ${formData.message}
             variants={fadeInUp}
             className="text-center space-y-3 mb-12"
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
+            <span className="text-xs uppercase tracking-[0.3em] text-amber-600 font-bold bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200">
               Bespoke Assistance
             </span>
             <h2 className="text-3xl sm:text-5xl font-serif text-[#111111]">
               Send Us a Message
             </h2>
             <p className="text-xs sm:text-sm text-neutral-500 font-light max-w-lg mx-auto">
-              Fill out your details below to generate an automated WhatsApp inquiry directly to our senior customer concierge.
+              Fill out your details below to generate an automated WhatsApp inquiry directly to our senior customer concierge at Hirdav Road, Lonar.
             </p>
-            <div className="w-12 h-[1px] bg-[#D4AF37] mx-auto mt-2" />
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-[#D4AF37] mx-auto rounded-full mt-2" />
           </motion.div>
 
           <motion.form
@@ -491,7 +456,7 @@ ${formData.message}
             viewport={{ once: true }}
             variants={fadeInUp}
             onSubmit={handleFormSubmit}
-            className="bg-[#FAF8F5] p-8 sm:p-12 rounded-3xl border border-[#D4AF37]/30 shadow-xl space-y-6"
+            className="bg-gradient-to-b from-[#FAF8F5] to-amber-50/40 p-8 sm:p-12 rounded-3xl border-2 border-[#D4AF37]/35 shadow-2xl space-y-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Full Name */}
@@ -506,7 +471,7 @@ ${formData.message}
                   onChange={handleFormChange}
                   placeholder="Enter your full name"
                   required
-                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] text-xs sm:text-sm outline-none transition"
+                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-xs sm:text-sm outline-none transition shadow-inner"
                 />
               </div>
 
@@ -522,7 +487,7 @@ ${formData.message}
                   onChange={handleFormChange}
                   placeholder="name@example.com"
                   required
-                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] text-xs sm:text-sm outline-none transition"
+                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-xs sm:text-sm outline-none transition shadow-inner"
                 />
               </div>
             </div>
@@ -538,8 +503,8 @@ ${formData.message}
                   name="phone"
                   value={formData.phone}
                   onChange={handleFormChange}
-                  placeholder="+91 00000 00000"
-                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] text-xs sm:text-sm outline-none transition"
+                  placeholder="+91 86055 05091"
+                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-xs sm:text-sm outline-none transition shadow-inner"
                 />
               </div>
 
@@ -552,12 +517,12 @@ ${formData.message}
                   name="contactMethod"
                   value={formData.contactMethod}
                   onChange={handleFormChange}
-                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] text-xs sm:text-sm outline-none transition"
+                  className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-xs sm:text-sm outline-none transition shadow-inner"
                 >
                   <option value="WhatsApp">WhatsApp</option>
                   <option value="Phone Call">Phone Call</option>
                   <option value="Email">Email</option>
-                  <option value="In-Store Visit">In-Store Visit</option>
+                  <option value="In-Store Visit">In-Store Visit (Hirdav Road Lonar)</option>
                 </select>
               </div>
             </div>
@@ -574,7 +539,7 @@ ${formData.message}
                 onChange={handleFormChange}
                 placeholder="Bridal Consultation / Custom Design Inquiry"
                 required
-                className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] text-xs sm:text-sm outline-none transition"
+                className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-xs sm:text-sm outline-none transition shadow-inner"
               />
             </div>
 
@@ -590,7 +555,7 @@ ${formData.message}
                 onChange={handleFormChange}
                 placeholder="Please describe your requirements or requested design detail in brief..."
                 required
-                className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] text-xs sm:text-sm outline-none transition resize-none"
+                className="w-full px-4 py-3.5 bg-white rounded-xl border border-neutral-300 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-xs sm:text-sm outline-none transition resize-none shadow-inner"
               />
             </div>
 
@@ -615,9 +580,9 @@ ${formData.message}
                 type="submit"
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-[#111111] text-white rounded-xl font-medium text-xs uppercase tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                className="w-full py-4 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-xl font-semibold text-xs uppercase tracking-[0.2em] hover:from-emerald-700 hover:to-green-700 transition-all duration-300 flex items-center justify-center gap-3 shadow-xl shadow-green-600/20"
               >
-                <FaPaperPlane className="w-3.5 h-3.5" /> Send Via WhatsApp
+                <FaWhatsapp className="w-5 h-5 text-white" /> Send Via WhatsApp (+91 86055 05091)
               </motion.button>
             </div>
           </motion.form>
@@ -634,14 +599,15 @@ ${formData.message}
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-center max-w-2xl mx-auto mb-14 space-y-2"
+            className="text-center max-w-2xl mx-auto mb-14 space-y-3"
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
+            <span className="text-xs uppercase tracking-[0.3em] text-amber-600 font-bold bg-amber-100/60 px-3.5 py-1.5 rounded-full border border-amber-200">
               Boutique Location
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif text-[#111111]">
-              Find Our Showroom
+              Find Us at Hirdav Road, Lonar
             </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-[#D4AF37] mx-auto rounded-full mt-2" />
           </motion.div>
 
           {/* Embedded Google Map Frame */}
@@ -650,12 +616,12 @@ ${formData.message}
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl bg-white p-2 mb-12"
+            className="rounded-3xl overflow-hidden border-2 border-[#D4AF37]/40 shadow-2xl bg-white p-3 mb-12"
           >
             <div className="w-full h-[400px] lg:h-[480px] rounded-2xl overflow-hidden">
               <iframe
-                title="Shree Lonar Showroom Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.809228833189!2d72.83106131490212!3d18.922002987178345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1c06d0d7723%3A0x1b28d7d91e6b9112!2sTaj%20Mahal%20Tower%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin"
+                title="Shreeji Jewellers Hirdav Road Lonar Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.0!2d76.54!3d19.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHirdav+Rd%2C+Lonar%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -667,32 +633,32 @@ ${formData.message}
 
           {/* Showroom Features Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
-            <div className="bg-white p-4 rounded-xl border border-[#D4AF37]/20 shadow-xs flex flex-col items-center space-y-2">
-              <FaCar className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-xs font-semibold text-neutral-800">Valet Parking</span>
+            <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-md flex flex-col items-center space-y-2.5 hover:border-[#D4AF37] transition-colors">
+              <div className="p-2.5 bg-amber-50 rounded-xl text-[#D4AF37]"><FaCar className="w-5 h-5" /></div>
+              <span className="text-xs font-bold text-neutral-800">Valet Parking</span>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-[#D4AF37]/20 shadow-xs flex flex-col items-center space-y-2">
-              <FaWheelchair className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-xs font-semibold text-neutral-800">Wheelchair Access</span>
+            <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-md flex flex-col items-center space-y-2.5 hover:border-[#D4AF37] transition-colors">
+              <div className="p-2.5 bg-amber-50 rounded-xl text-[#D4AF37]"><FaWheelchair className="w-5 h-5" /></div>
+              <span className="text-xs font-bold text-neutral-800">Wheelchair Access</span>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-[#D4AF37]/20 shadow-xs flex flex-col items-center space-y-2">
-              <FaStore className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-xs font-semibold text-neutral-800">Luxury Showroom</span>
+            <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-md flex flex-col items-center space-y-2.5 hover:border-[#D4AF37] transition-colors">
+              <div className="p-2.5 bg-amber-50 rounded-xl text-[#D4AF37]"><FaStore className="w-5 h-5" /></div>
+              <span className="text-xs font-bold text-neutral-800">Luxury Showroom</span>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-[#D4AF37]/20 shadow-xs flex flex-col items-center space-y-2">
-              <FaSnowflake className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-xs font-semibold text-neutral-800">Air Conditioned</span>
+            <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-md flex flex-col items-center space-y-2.5 hover:border-[#D4AF37] transition-colors">
+              <div className="p-2.5 bg-amber-50 rounded-xl text-[#D4AF37]"><FaSnowflake className="w-5 h-5" /></div>
+              <span className="text-xs font-bold text-neutral-800">Air Conditioned</span>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-[#D4AF37]/20 shadow-xs flex flex-col items-center space-y-2 col-span-2 sm:col-span-1">
-              <FaUserCheck className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-xs font-semibold text-neutral-800">Private Lounges</span>
+            <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-md flex flex-col items-center space-y-2.5 hover:border-[#D4AF37] transition-colors col-span-2 sm:col-span-1">
+              <div className="p-2.5 bg-amber-50 rounded-xl text-[#D4AF37]"><FaUserCheck className="w-5 h-5" /></div>
+              <span className="text-xs font-bold text-neutral-800">Private Lounges</span>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* SECTION 5: MEET OUR FOUNDER & SOCIAL CARDS */}
+      {/* SECTION 5: MEET OUR FOUNDER */}
       <section className="py-20 md:py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
@@ -701,15 +667,15 @@ ${formData.message}
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-center max-w-2xl mx-auto mb-16 space-y-2"
+            className="text-center max-w-2xl mx-auto mb-16 space-y-3"
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
+            <span className="text-xs uppercase tracking-[0.3em] text-amber-600 font-bold bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200">
               Visionary Leadership
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif text-[#111111]">
               Meet Our Founder
             </h2>
-            <div className="w-12 h-[1px] bg-[#D4AF37] mx-auto mt-2" />
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-[#D4AF37] mx-auto rounded-full mt-2" />
           </motion.div>
 
           <motion.div
@@ -717,15 +683,15 @@ ${formData.message}
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="bg-[#FAF8F5] rounded-3xl p-8 lg:p-12 border border-[#D4AF37]/30 shadow-xl mb-16"
+            className="bg-gradient-to-br from-[#FAF8F5] via-amber-50/30 to-[#FAF8F5] rounded-3xl p-8 lg:p-12 border-2 border-[#D4AF37]/35 shadow-2xl mb-16"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-5 relative">
-                <div className="rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-md">
+                <div className="rounded-2xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop"
-                    alt="Founder of Shree Lonar Jewellers"
-                    className="w-full h-[380px] lg:h-[440px] object-cover object-top"
+                    alt="Founder of Shreeji Jewellers"
+                    className="w-full h-[380px] lg:h-[440px] object-cover object-top filter brightness-105"
                   />
                 </div>
               </div>
@@ -735,245 +701,20 @@ ${formData.message}
                   <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#111111]">
                     Mr. Lonar
                   </h3>
-                  <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mt-1">
-                    Founder & Managing Director
+                  <p className="text-xs uppercase tracking-widest text-amber-700 font-bold mt-1">
+                    Founder & Managing Director • Shreeji Jewellers, Lonar
                   </p>
                 </div>
 
-                <div className="w-12 h-[2px] bg-[#D4AF37]" />
+                <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-[#D4AF37] rounded-full" />
 
-                <p className="text-sm sm:text-base text-neutral-600 font-light leading-relaxed italic">
-                  "Jewellery isn't merely gold or stone—it is an emotional treasure, an heirloom that holds memories, celebrations, and familial legacies across generations. When you choose Shree Lonar, you choose a bond built on absolute trust and lifelong dedication."
-                </p>
-
-                <p className="text-xs sm:text-sm text-neutral-500 font-light leading-relaxed">
-                  With over 20 years at the forefront of precious metal craftsmanship, Mr. Lonar established the brand with an unyielding commitment to purity, ethics, and artistic perfection.
+                <p className="text-sm sm:text-base text-neutral-700 font-light leading-relaxed italic bg-white/70 p-6 rounded-2xl border border-amber-200/60 shadow-inner">
+                  "Jewellery isn't merely about adornment; it is a timeless reflection of heritage, trust, and emotion passed down through generations. Our commitment at Hirdav Road, Lonar is to honor that legacy with absolute purity and craftsmanship."
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Social Cards Grid */}
-          <div className="space-y-6">
-            <h4 className="text-center font-serif text-lg text-[#111111]">
-              Connect Directly With Us
-            </h4>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"
-            >
-              {socialLinks.map((social, idx) => (
-                <motion.a
-                  key={idx}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variants={fadeInUp}
-                  whileHover={{ y: -5 }}
-                  className="bg-white p-4 rounded-2xl border border-[#D4AF37]/30 shadow-xs hover:shadow-md hover:border-[#D4AF37] transition-all flex flex-col items-center text-center space-y-2 group"
-                >
-                  <div className="p-2.5 bg-[#FAF8F5] rounded-full group-hover:bg-[#D4AF37]/10 transition-colors">
-                    {social.icon}
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-[#111111]">{social.name}</p>
-                    <p className="text-[10px] text-neutral-400 mt-0.5 truncate max-w-[100px]">
-                      {social.handle}
-                    </p>
-                  </div>
-                </motion.a>
-              ))}
-            </motion.div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 6: QUICK ACTION CARDS */}
-      <section className="py-20 md:py-32 bg-[#FAF8F5] relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center max-w-2xl mx-auto mb-14 space-y-2"
-          >
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
-              Instant Concierge
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#111111]">
-              Quick Actions
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {quickActions.map((action, idx) => (
-              <motion.a
-                key={idx}
-                href={action.link}
-                variants={fadeInUp}
-                whileHover={{ y: -6 }}
-                className="bg-white p-7 rounded-2xl border border-[#D4AF37]/20 shadow-sm hover:border-[#D4AF37] transition-all space-y-3 group"
-              >
-                <div className="p-3 bg-[#FAF8F5] w-fit rounded-xl border border-[#D4AF37]/10 group-hover:bg-[#D4AF37]/10 transition-colors">
-                  {action.icon}
-                </div>
-                <h3 className="text-base font-serif font-bold text-[#111111]">
-                  {action.title}
-                </h3>
-                <p className="text-xs text-neutral-500 font-light leading-relaxed">
-                  {action.desc}
-                </p>
-              </motion.a>
-            ))}
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* SECTION 7: FREQUENTLY ASKED QUESTIONS */}
-      <section className="py-20 md:py-32 bg-white relative">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center max-w-2xl mx-auto mb-14 space-y-2"
-          >
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
-              Common Queries
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#111111]">
-              Frequently Asked Questions
-            </h2>
-          </motion.div>
-
-          <div className="space-y-4">
-            {faqItems.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="bg-[#FAF8F5] rounded-2xl border border-[#D4AF37]/30 overflow-hidden shadow-xs"
-              >
-                <button
-                  onClick={() => setExpandedFAQ(expandedFAQ === idx ? null : idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
-                >
-                  <span className="text-sm sm:text-base font-serif font-bold text-[#111111]">
-                    {item.question}
-                  </span>
-                  <motion.div
-                    animate={{ rotate: expandedFAQ === idx ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="p-1 bg-white rounded-full border border-[#D4AF37]/30 text-[#D4AF37]"
-                  >
-                    <FaChevronDown className="w-3.5 h-3.5" />
-                  </motion.div>
-                </button>
-
-                <AnimatePresence>
-                  {expandedFAQ === idx && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="px-6 pb-5 pt-1 border-t border-[#D4AF37]/10"
-                    >
-                      <p className="text-xs sm:text-sm text-neutral-600 font-light leading-relaxed">
-                        {item.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 8: CUSTOMER PROMISE */}
-      <section className="py-20 bg-[#FAF8F5] border-t border-b border-[#D4AF37]/20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
-          <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
-              The Lonar Standard
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif text-[#111111]">
-              Our Uncompromised Promises
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-            {promiseBadges.map((badge, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white p-6 rounded-2xl border border-[#D4AF37]/20 text-center space-y-3 hover:shadow-lg transition duration-300"
-              >
-                <div className="p-3 bg-[#FAF8F5] w-fit mx-auto rounded-xl border border-[#D4AF37]/10">
-                  {badge.icon}
-                </div>
-                <h4 className="text-xs font-bold text-[#111111] uppercase tracking-wider">{badge.title}</h4>
-                <p className="text-[10px] text-neutral-400 font-light">{badge.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 9: CALL TO ACTION BANNER */}
-      <section className="py-20 md:py-28 bg-white text-center px-6">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
-            Visit Us Today
-          </span>
-
-          <h2 className="text-3xl sm:text-5xl font-serif text-[#111111]">
-            Visit Our Luxury Showroom Today
-          </h2>
-
-          <p className="max-w-lg mx-auto text-xs sm:text-sm text-neutral-500 font-light leading-relaxed">
-            Experience the warmth, precision, and elegance of handcrafted gold, solitary diamonds, and heritage jewellery in person.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <a
-              href="#map-section"
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#111111] text-white text-xs uppercase tracking-widest font-medium rounded-full hover:bg-[#D4AF37] hover:text-black transition duration-300"
-            >
-              Get Directions
-            </a>
-            <a
-              href="tel:+919876543210"
-              className="w-full sm:w-auto px-8 py-3.5 bg-white text-[#111111] text-xs uppercase tracking-widest font-medium rounded-full border border-[#D4AF37]/40 hover:bg-[#FAF8F5] transition duration-300"
-            >
-              Call Now
-            </a>
-          </div>
         </div>
       </section>
 

@@ -15,20 +15,24 @@ import {
   FiChevronRight
 } from 'react-icons/fi';
 
-// Local Assets
-import redImg from '../assets/images/red.jpg';
-import ringImg from '../assets/images/Ring.jpg';
-import earningImg from '../assets/images/Earning.jpg';
-import pearlImg from '../assets/images/pearl.jpg';
-import rubyImg from '../assets/images/ruby.jpg';
-import saphireImg from '../assets/images/saphire.jpg';
-import goldbanglesImg from '../assets/images/goldbangles.jpg';
-import diamondStudImg from '../assets/images/diamondStud.jpg';
-import royalkundansImg from '../assets/images/royalkundans _.jpg';
-import readiImg from '../assets/images/readi.jpg';
-import jumkasImg from '../assets/images/jumkas.jpg';
-import diamondbracletImg from '../assets/images/diamondbraclet.jpg';
-import backimg from '../assets/images/jewelry.jpg';
+// Local Assets - Cleaned up to include only the active images used in the products list
+import jumkas3Img from '../assets/images/jumkas3.jpg';
+import jumkas4Img from '../assets/images/jumkas4.jpg';
+import jumkas5Img from '../assets/images/jumkas5.jpg';
+import jumkas6Img from '../assets/images/jumkas6.jpg';
+import jumkas7Img from '../assets/images/jumkas7.jpg';
+import jumkasetImg from '../assets/images/jumkaset.jpg';
+import newjumkasImg from '../assets/images/newjumkas.jpg';
+import neckals3Img from '../assets/images/neckals3.jpg';
+import necklace6Img from '../assets/images/necklace6.jpg';
+import necklace7Img from '../assets/images/necklace7.jpg';
+import necklace8Img from '../assets/images/necklace8.jpg';
+import necklaceandjImg from '../assets/images/necklaceandj.jpg';
+import neklace1Img from '../assets/images/neklace1.jpg';
+import neklace2Img from '../assets/images/neklace2.jpg';
+import neklasc5Img from '../assets/images/neklasc5.jpg';
+import neklasce4Img from '../assets/images/neklasce4.jpg';
+import backgroud from "../assets/images/jewelry.jpg"
 
 export const Store = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -50,37 +54,22 @@ export const Store = () => {
       id: 1,
       name: 'Eternal Radiance Necklace',
       description: 'A timeless collection of gold necklaces crafted with fine precision',
-      image: redImg,
-      price: 45000,
-      originalPrice: 55000,
+      image: neklace1Img,
+      price: 110000,
+      originalPrice: 130000,
       category: 'Necklace',
       collection: 'Premium',
       rating: 4.8,
       specs: [
         { label: 'Purity', value: '22K' },
-        { label: 'Weight', value: '5g' },
+        { label: 'Weight', value: '18g' },
       ],
     },
     {
       id: 2,
-      name: 'Diamond Dreams Ring',
-      description: 'Exquisite diamond-studded ring for your special occasions',
-      image: ringImg,
-      price: 125000,
-      originalPrice: 150000,
-      category: 'Ring',
-      collection: 'Luxury',
-      rating: 5.0,
-      specs: [
-        { label: 'Stones', value: 'VVS1' },
-        { label: 'Carat', value: '2.5' },
-      ],
-    },
-    {
-      id: 3,
       name: 'Emerald Elegance Earrings',
       description: 'Green emerald collection with intricate vintage designs',
-      image: earningImg,
+      image: jumkas3Img,
       price: 65000,
       originalPrice: 80000,
       category: 'Earrings',
@@ -93,139 +82,214 @@ export const Store = () => {
     },
     {
       id: 4,
-      name: 'Pearl Paradise Bracelet',
-      description: 'Lustrous South Sea pearl jewellery for everyday elegance',
-      image: pearlImg,
-      price: 35000,
-      originalPrice: 42000,
-      category: 'Bracelet',
+      name: 'Royal Heritage Jhumkas II',
+      description: 'Traditional gold jhumkas adorned with fine enamel accents',
+      image: jumkas4Img,
+      price: 48000,
+      originalPrice: 55000,
+      category: 'Earrings',
       collection: 'Classic',
       rating: 4.7,
       specs: [
-        { label: 'Pearl Type', value: 'South Sea' },
-        { label: 'Size', value: '12mm' },
+        { label: 'Purity', value: '22K' },
+        { label: 'Weight', value: '10g' },
       ],
     },
     {
       id: 5,
-      name: 'Ruby Romance Pendant',
-      description: 'Stunning deep red ruby pieces set in pure gold',
-      image: rubyImg,
-      price: 95000,
-      originalPrice: 120000,
-      category: 'Pendant',
-      collection: 'Luxury',
-      rating: 4.9,
+      name: 'Temple Gold Drop Earrings',
+      description: 'Intricate temple design hanging drops with gold bead drops',
+      image: jumkas5Img,
+      price: 59000,
+      originalPrice: 70000,
+      category: 'Earrings',
+      collection: 'Classic',
+      rating: 4.8,
       specs: [
-        { label: 'Stone', value: 'Ruby' },
-        { label: 'Weight', value: '2.8 carat' },
+        { label: 'Design', value: 'Temple' },
+        { label: 'Purity', value: '22K' },
       ],
     },
     {
       id: 6,
-      name: 'Sapphire Serenity Set',
-      description: 'Royal deep blue sapphire comprehensive jewellery set',
-      image: saphireImg,
-      price: 165000,
-      originalPrice: 195000,
-      category: 'Set',
+      name: 'Chandbali Regal Earrings',
+      description: 'Majestic half-moon chandbalis studded with polki diamonds',
+      image: jumkas6Img,
+      price: 88000,
+      originalPrice: 105000,
+      category: 'Earrings',
       collection: 'Luxury',
-      rating: 4.8,
+      rating: 4.9,
       specs: [
-        { label: 'Stone', value: 'Sapphire' },
-        { label: 'Weight', value: '3.5 carat' },
+        { label: 'Work', value: 'Polki' },
+        { label: 'Weight', value: '14g' },
       ],
     },
     {
       id: 7,
-      name: 'Gold Bangle Classic',
-      description: 'Traditional solid gold heavy bangle design',
-      image: goldbanglesImg,
-      price: 55000,
-      originalPrice: 65000,
-      category: 'Bangle',
+      name: 'Pearl Kissed Jhumki',
+      description: 'Delicate mini jhumkis fringed with cascading freshwater pearls',
+      image: jumkas7Img,
+      price: 39000,
+      originalPrice: 46000,
+      category: 'Earrings',
       collection: 'Classic',
       rating: 4.6,
       specs: [
-        { label: 'Purity', value: '22K' },
-        { label: 'Weight', value: '8g' },
+        { label: 'Pearl', value: 'Freshwater' },
+        { label: 'Weight', value: '7g' },
       ],
     },
     {
       id: 8,
-      name: 'Diamond Studs Earrings',
-      description: 'Classic brilliant-cut diamond studs for everyday wear',
-      image: diamondStudImg,
-      price: 45000,
-      originalPrice: 55000,
-      category: 'Earrings',
-      collection: 'Premium',
-      rating: 4.9,
+      name: 'Grand Bridal Jhumka Set',
+      description: 'Comprehensive bridal ear adornment set with matching maang tikka',
+      image: jumkasetImg,
+      price: 142000,
+      originalPrice: 165000,
+      category: 'Set',
+      collection: 'Luxury',
+      rating: 5.0,
       specs: [
-        { label: 'Stones', value: 'VVS1' },
-        { label: 'Carat', value: '0.8' },
+        { label: 'Includes', value: 'Earrings + Tikka' },
+        { label: 'Purity', value: '22K' },
       ],
     },
     {
       id: 9,
-      name: 'Royal Kundan Choker',
-      description: 'Traditional handcrafted Kundan choker with meenakari work',
-      image: royalkundansImg,
-      price: 145000,
-      originalPrice: 170000,
-      category: 'Necklace',
-      collection: 'Luxury',
-      rating: 4.9,
+      name: 'Modern Jhumka New Edition',
+      description: 'Fresh stylistic approach to classic temple jhumkas',
+      image: newjumkasImg,
+      price: 54000,
+      originalPrice: 62000,
+      category: 'Earrings',
+      collection: 'Premium',
+      rating: 4.7,
       specs: [
-        { label: 'Work', value: 'Kundan' },
-        { label: 'Finish', value: '24K Gold Plated' },
+        { label: 'Style', value: 'Modern' },
+        { label: 'Purity', value: '22K' },
       ],
     },
     {
       id: 10,
-      name: 'Solitaire Engagement Ring',
-      description: 'Single flawless diamond solitaire ring on white gold band',
-      image: readiImg,
-      price: 185000,
-      originalPrice: 210000,
-      category: 'Ring',
+      name: 'Regal Gold Neckpiece',
+      description: 'Statement gold neckpiece featuring traditional motifs and laser cuts',
+      image: neckals3Img,
+      price: 175000,
+      originalPrice: 195000,
+      category: 'Necklace',
       collection: 'Luxury',
-      rating: 5.0,
+      rating: 4.9,
       specs: [
-        { label: 'Clarity', value: 'IF' },
-        { label: 'Carat', value: '1.5' },
+        { label: 'Purity', value: '22K' },
+        { label: 'Weight', value: '30g' },
       ],
     },
     {
       id: 11,
-      name: 'Antique Gold Jhumkas',
-      description: 'Traditional temple design jhumka earrings with pearl hangings',
-      image: jumkasImg,
-      price: 52000,
-      originalPrice: 60000,
-      category: 'Earrings',
-      collection: 'Classic',
-      rating: 4.7,
+      name: 'Victorian Diamond Necklace',
+      description: 'Dark antique finish encrusted with brilliant-cut sparkling stones',
+      image: necklace6Img,
+      price: 155000,
+      originalPrice: 180000,
+      category: 'Necklace',
+      collection: 'Luxury',
+      rating: 4.8,
       specs: [
-        { label: 'Purity', value: '22K' },
-        { label: 'Weight', value: '9g' },
+        { label: 'Setting', value: 'Victorian' },
+        { label: 'Stones', value: 'CZ & Diamond' },
       ],
     },
     {
       id: 12,
-      name: 'Imperial Diamond Tennis Bracelet',
-      description: 'Continuous line of matched brilliant diamonds set tightly',
-      image: diamondbracletImg,
-      price: 135000,
-      originalPrice: 160000,
-      category: 'Bracelet',
+      name: 'Layered Gold Chain Necklace',
+      description: 'Multi-strand delicate gold chains offering effortless layering chic',
+      image: necklace7Img,
+      price: 78000,
+      originalPrice: 90000,
+      category: 'Necklace',
       collection: 'Premium',
-      rating: 4.9,
+      rating: 4.7,
       specs: [
-        { label: 'Stones', value: 'Round Diamond' },
-        { label: 'Total Carat', value: '4.0' },
+        { label: 'Purity', value: '18K' },
+        { label: 'Strands', value: '3-Layer' },
       ],
     },
+    {
+      id: 13,
+      name: 'Royal Kundan Neckset',
+      description: 'Pure uncut glass-Kundan pieces hand-set in a broad choker profile',
+      image: necklace8Img,
+      price: 138000,
+      originalPrice: 155000,
+      category: 'Necklace',
+      collection: 'Luxury',
+      rating: 4.9,
+      specs: [
+        { label: 'Craft', value: 'Kundan' },
+        { label: 'Plating', value: '24K Gold' },
+      ],
+    },
+    {
+      id: 14,
+      name: 'Necklace & Jhumka Ensemble',
+      description: 'Matched matching necklace and earring set for weddings',
+      image: necklaceandjImg,
+      price: 190000,
+      originalPrice: 215000,
+      category: 'Set',
+      collection: 'Luxury',
+      rating: 5.0,
+      specs: [
+        { label: 'Set Type', value: 'Complete' },
+        { label: 'Purity', value: '22K' },
+      ],
+    },
+    {
+      id: 15,
+      name: 'Minimalist Diamond Pendant Necklace',
+      description: 'A single floating diamond suspended on an invisible gold chain',
+      image: neklace2Img,
+      price: 42000,
+      originalPrice: 49000,
+      category: 'Necklace',
+      collection: 'Classic',
+      rating: 4.8,
+      specs: [
+        { label: 'Carat', value: '0.25' },
+        { label: 'Metal', value: 'Yellow Gold' },
+      ],
+    },
+    {
+      id: 16,
+      name: 'Traditional Kasu Haram',
+      description: 'Classic coin necklace featuring traditional goddess motifs',
+      image: neklasc5Img,
+      price: 128000,
+      originalPrice: 145000,
+      category: 'Necklace',
+      collection: 'Classic',
+      rating: 4.8,
+      specs: [
+        { label: 'Motif', value: 'Temple Coin' },
+        { label: 'Purity', value: '22K' },
+      ],
+    },
+    {
+      id: 17,
+      name: 'Navratna Gemstone Necklace',
+      description: 'A brilliant alignment of nine auspicious planetary gemstones',
+      image: neklasce4Img,
+      price: 160000,
+      originalPrice: 185000,
+      category: 'Necklace',
+      collection: 'Luxury',
+      rating: 5.0,
+      specs: [
+        { label: 'Gems', value: 'Navratna' },
+        { label: 'Setting', value: 'Handmade' },
+      ],
+    }
   ], []);
 
   const categories = ['all', 'Necklace', 'Ring', 'Earrings', 'Bracelet', 'Pendant', 'Set', 'Bangle'];
@@ -235,7 +299,7 @@ export const Store = () => {
     return allProducts
       .filter((product) => {
         const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                              product.description.toLowerCase().includes(searchQuery.toLowerCase());
+                            product.description.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesCategory = filters.category === 'all' || product.category === filters.category;
         const matchesCollection = filters.collection === 'all' || product.collection === filters.collection;
         const matchesPrice = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
@@ -276,7 +340,7 @@ export const Store = () => {
       <Hero
         title="Our Masterpiece Gallery"
         subtitle="Explore our meticulously crafted jewelry lines designed for sophisticated elegance and timeless celebration."
-        image={backimg}
+        image={backgroud}
       />
 
       {/* Main Boutique Section */}
@@ -311,7 +375,7 @@ export const Store = () => {
             
             {/* Desktop Modern Glassmorphic Sidebar */}
             <div className="hidden lg:block lg:col-span-1">
-              <div className="sticky top-28 bg-white/90 backdrop-blur-md p-6 rounded-3xl border border-[#E8DFC8] shadow-xl shadow-stone-200/50 space-y-7">
+              <div className="sticky top-28 bg-white/95 backdrop-blur-md p-6 rounded-3xl border border-[#E8DFC8] shadow-xl shadow-stone-200/50 space-y-7">
                 
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-[#E8DFC8] pb-4">
@@ -359,7 +423,7 @@ export const Store = () => {
                   <label className="block text-[11px] font-bold uppercase tracking-widest text-[#8C6D2B] mb-2">
                     Jewelry Category
                   </label>
-                  <div className="space-y-1 max-h-48 overflow-y-auto pr-1 custom-scrollbar">
+                  <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
                     {categories.map((cat) => {
                       const isActive = filters.category === cat;
                       return (
@@ -459,7 +523,7 @@ export const Store = () => {
             <div className="lg:col-span-3 space-y-6">
               
               {/* Desktop Bar Display */}
-              <div className="hidden lg:flex justify-between items-center bg-white/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-[#E8DFC8] shadow-sm">
+              <div className="hidden lg:flex justify-between items-center bg-white/85 backdrop-blur-md px-6 py-4 rounded-2xl border border-[#E8DFC8] shadow-sm">
                 <div className="flex items-center gap-2">
                   <FiGrid className="text-[#C5A059]" />
                   <p className="text-xs text-[#6B655F]">
@@ -512,7 +576,6 @@ export const Store = () => {
                   </AnimatePresence>
                 </motion.div>
               ) : (
-                /* Sleek Empty State */
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
