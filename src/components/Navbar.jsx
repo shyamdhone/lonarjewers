@@ -26,6 +26,8 @@ import logoImg from '../assets/images/logo.jpg'
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [activeMenu, setActiveMenu] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,14 +36,30 @@ export function Navbar() {
   const [goldRate, setGoldRate] = useState(72450);
   const [rateUp, setRateUp] = useState(true);
 
-  // Monitor Scroll Position safely
+  // Monitor Scroll Position & Direction safely
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Check if scrolled past threshold for styling
+      setIsScrolled(currentScrollY > 20);
+
+      // Hide/Show navbar based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past 100px -> Hide navbar
+        setIsVisible(false);
+        setActiveMenu(null); // Close mega menu if open while scrolling down
+      } else {
+        // Scrolling up -> Show navbar
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   // Live Market Fluctuation Mock
   useEffect(() => {
@@ -68,7 +86,9 @@ export function Navbar() {
   return (
     <>
       {/* FLOATING PILL NAVBAR CONTAINER */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4 pointer-events-none">
+      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4 pointer-events-none transition-transform duration-500 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
         
         {/* Ambient Gold Particles */}
         <div className="absolute inset-x-0 top-0 h-20 pointer-events-none overflow-hidden flex justify-around opacity-30">
