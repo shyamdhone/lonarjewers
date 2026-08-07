@@ -659,64 +659,7 @@ ${formData.message}
       </section>
 
       {/* SECTION 5: MEET OUR FOUNDER */}
-      <section className="py-20 md:py-32 bg-white relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center max-w-2xl mx-auto mb-16 space-y-3"
-          >
-            <span className="text-xs uppercase tracking-[0.3em] text-amber-600 font-bold bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200">
-              Visionary Leadership
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#111111]">
-              Meet Our Founder
-            </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-[#D4AF37] mx-auto rounded-full mt-2" />
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="bg-gradient-to-br from-[#FAF8F5] via-amber-50/30 to-[#FAF8F5] rounded-3xl p-8 lg:p-12 border-2 border-[#D4AF37]/35 shadow-2xl mb-16"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              <div className="lg:col-span-5 relative">
-                <div className="rounded-2xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop"
-                    alt="Founder of Shreeji Jewellers"
-                    className="w-full h-[380px] lg:h-[440px] object-cover object-top filter brightness-105"
-                  />
-                </div>
-              </div>
-
-              <div className="lg:col-span-7 space-y-5">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#111111]">
-                    Mr. Lonar
-                  </h3>
-                  <p className="text-xs uppercase tracking-widest text-amber-700 font-bold mt-1">
-                    Founder & Managing Director • Shreeji Jewellers, Lonar
-                  </p>
-                </div>
-
-                <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-[#D4AF37] rounded-full" />
-
-                <p className="text-sm sm:text-base text-neutral-700 font-light leading-relaxed italic bg-white/70 p-6 rounded-2xl border border-amber-200/60 shadow-inner">
-                  "Jewellery isn't merely about adornment; it is a timeless reflection of heritage, trust, and emotion passed down through generations. Our commitment at Hirdav Road, Lonar is to honor that legacy with absolute purity and craftsmanship."
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
+    
 
     </div>
   );
