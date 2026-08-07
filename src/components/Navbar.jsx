@@ -11,6 +11,7 @@ import {
   FiStar,
   FiShield
 } from 'react-icons/fi';
+import { Link } from "react-router-dom";
 
 // Curated High Jewellery Mega Menu Categories
 const MEGA_MENU_ITEMS = [
@@ -86,7 +87,7 @@ export function Navbar() {
           <div className="px-6 md:px-10 flex items-center justify-between relative z-10">
             
             {/* BRAND LOGO IMAGE REPLACEMENT - INCREASED SIZE */}
-            <a href="/" className="flex items-center group relative">
+            <Link to="/" className="flex items-center group relative">
               <div className="relative overflow-hidden flex items-center py-1">
                 <img 
                   src={logoImg}
@@ -94,13 +95,12 @@ export function Navbar() {
                   className="h-14 md:h-16 w-auto object-contain rounded-full border border-[#D4AF37]/50 shadow-md group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-            </a>
+            </Link>
 
             {/* NAVIGATION LINKS */}
             <div className="hidden lg:flex items-center gap-7 xl:gap-9">
               {[
                 { name: 'Home', path: '/' },
-                
                 { name: 'Store', path: '/store', hasMega: true },
                 { name: 'Gold Calculator', path: '/gold-calculator' },
                 { name: 'About', path: '/about' },
@@ -112,15 +112,15 @@ export function Navbar() {
                   onMouseEnter={() => link.hasMega && setActiveMenu('store')}
                   onMouseLeave={() => link.hasMega && setActiveMenu(null)}
                 >
-                  <a
-                    href={link.path}
+                  <Link
+                    to={link.path}
                     className="text-xs xl:text-[13px] font-sans font-medium tracking-[0.2em] uppercase text-[#1B1A17]/85 hover:text-[#C5A059] transition-colors duration-300 flex items-center gap-1.5 py-1"
                   >
                     <span>{link.name}</span>
                     {link.hasMega && (
                       <FiChevronDown className="text-[#C5A059] group-hover/nav:rotate-180 transition-transform duration-500 text-xs" />
                     )}
-                  </a>
+                  </Link>
 
                   {/* Animated Gold Underline */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 flex items-center justify-center transition-all duration-500 group-hover/nav:w-full">
@@ -210,17 +210,17 @@ export function Navbar() {
                     Curated Masterpieces & Collections
                   </h3>
                 </div>
-                <a href="/store" className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C5A059] hover:text-[#1B1A17] transition-colors flex items-center gap-1.5">
+                <Link to="/store" className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C5A059] hover:text-[#1B1A17] transition-colors flex items-center gap-1.5">
                   <span>Explore Complete Catalogue</span> 
                   <FiArrowUpRight />
-                </a>
+                </Link>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {MEGA_MENU_ITEMS.map((item) => (
-                  <a
+                  <Link
                     key={item.id}
-                    href={`/category/${item.id}`}
+                    to={`/store`}
                     className="group relative flex gap-5 p-4 rounded-2xl bg-[#F8F5EF]/50 hover:bg-[#FFFDF8] border border-[#D4AF37]/15 hover:border-[#D4AF37]/50 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
                   >
                     <span className="absolute top-3 right-3 z-10 text-[8.5px] font-mono tracking-widest uppercase bg-[#1B1A17] text-[#D4AF37] px-2 py-0.5 rounded-full border border-[#D4AF37]/30">
@@ -246,7 +246,7 @@ export function Navbar() {
                         Discover <FiArrowUpRight className="text-[9px]" />
                       </span>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
 
@@ -260,9 +260,9 @@ export function Navbar() {
                     <p className="text-[11px] text-[#706A63]">Every masterpiece is accompanied by international gemological certification and lifetime buyback guarantee.</p>
                   </div>
                 </div>
-                <a href="/store" className="px-5 py-2 rounded-full bg-[#1B1A17] text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#C5A059] hover:text-[#1B1A17] transition-all shrink-0">
+                <Link to="/store" className="px-5 py-2 rounded-full bg-[#1B1A17] text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#C5A059] hover:text-[#1B1A17] transition-all shrink-0">
                   View Certified Stock
-                </a>
+                </Link>
               </div>
             </div>
           )}
@@ -313,9 +313,9 @@ export function Navbar() {
               <div>
                 <h4 className="text-[11px] font-mono tracking-[0.3em] uppercase text-[#D4AF37] mb-4">Quick Links</h4>
                 <ul className="space-y-3 font-serif text-lg">
-                  <li><a href="/collections" className="hover:text-[#D4AF37] transition-colors flex items-center justify-between"><span>Explore Bridal Parure</span> <FiArrowUpRight /></a></li>
-                  <li><a href="/gold-calculator" className="hover:text-[#D4AF37] transition-colors flex items-center justify-between"><span>Live Gold Rate & Custom Valuation</span> <FiArrowUpRight /></a></li>
-                  <li><a href="/store" className="hover:text-[#D4AF37] transition-colors flex items-center justify-between"><span>Book Private Viewing Lounge</span> <FiArrowUpRight /></a></li>
+                  <li><Link to="/store" className="hover:text-[#D4AF37] transition-colors flex items-center justify-between"><span>Explore Bridal Parure</span> <FiArrowUpRight /></Link></li>
+                  <li><Link to="/gold-calculator" className="hover:text-[#D4AF37] transition-colors flex items-center justify-between"><span>Live Gold Rate & Custom Valuation</span> <FiArrowUpRight /></Link></li>
+                  <li><Link to="/store" className="hover:text-[#D4AF37] transition-colors flex items-center justify-between"><span>Book Private Viewing Lounge</span> <FiArrowUpRight /></Link></li>
                 </ul>
               </div>
             </div>
@@ -328,26 +328,26 @@ export function Navbar() {
         <div className="fixed inset-0 z-40 bg-[#1B1A17] backdrop-blur-3xl text-[#FFFDF8] flex flex-col justify-between px-8 py-20 overflow-y-auto">
           <div className="flex flex-col gap-6 mt-8">
             <div className="flex items-center justify-between pb-4 border-b border-[#D4AF37]/20">
-              <img src="https://images.unsplash.com/photo-1611591475858-a53c0235316f?q=80&w=200&auto=format&fit=crop" alt="Logo" className="h-12 w-auto rounded-full" />
+              <img src={logoImg} alt="Logo" className="h-12 w-auto rounded-full object-contain" />
               <span className="text-[9px] font-mono tracking-widest text-[#706A63]">HIGH JEWELLERY</span>
             </div>
             
             {[
               { name: 'Home', path: '/' },
-              { name: 'Collections', path: '/collections' },
               { name: 'Store', path: '/store' },
               { name: 'Gold Calculator', path: '/gold-calculator' },
               { name: 'About', path: '/about' },
               { name: 'Contact', path: '/contact' }
             ].map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.path}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="font-serif text-3xl uppercase tracking-[0.18em] text-[#FFFDF8] hover:text-[#D4AF37] border-b border-[#D4AF37]/15 pb-4 transition-colors flex items-center justify-between"
               >
                 <span>{item.name}</span>
                 <FiArrowUpRight className="text-xl text-[#D4AF37]" />
-              </a>
+              </Link>
             ))}
           </div>
 
