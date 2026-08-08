@@ -730,7 +730,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
                   </div>
 
                   <div className="pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center justify-between">
-                    <span>Anand Jewellers Standard</span>
+                    <span>Shreeji Jewellers Standard</span>
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   </div>
                 </div>
@@ -802,7 +802,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
                   <Line data={trendChartData} options={trendChartOptions} />
                 </div>
                 <div className="text-right text-[11px] text-slate-400 font-medium">
-                  Source: Anand Jewellers Rate History
+                  Source: Shreeji Jewellers Rate History
                 </div>
               </div>
 
@@ -859,7 +859,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
                 Calculate Jewellery Price
               </h2>
               <p className="mt-2 text-slate-600 text-sm sm:text-base">
-                Estimate your exact jewellery cost instantly using today's official Anand Jewellers rates.
+                Estimate your exact jewellery cost instantly using today's official Shreeji Jewellers rates.
               </p>
             </div>
 
@@ -911,7 +911,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
                     </div>
                   </div>
                   <div className="text-right text-[11px] text-slate-500">
-                    Source: Anand Jewellers<br />Updated {dailyRates.lastUpdated}
+                    Source: Shreeji Jewellers<br />Updated {dailyRates.lastUpdated}
                   </div>
                 </div>
 
@@ -1177,7 +1177,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
               Important Terms & Disclaimer
             </h4>
             <p className="text-xs text-slate-500 leading-relaxed max-w-3xl mx-auto">
-              Rates shown on this page are Anand Jewellers' displayed daily reference rates and may change during the day based on bullion market variations. Jewellery prices can vary based on specific product design, making charges, gemstones, wastage, and statutory taxes. The calculator provides an estimate only and does not constitute a binding purchase agreement. Please confirm final price directly with Anand Jewellers prior to billing.
+              Rates shown on this page are Shreeji Jewellers' displayed daily reference rates and may change during the day based on bullion market variations. Jewellery prices can vary based on specific product design, making charges, gemstones, wastage, and statutory taxes. The calculator provides an estimate only and does not constitute a binding purchase agreement. Please confirm final price directly with Shreeji Jewellers prior to billing.
             </p>
           </div>
         </section>
@@ -1190,7 +1190,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
               Planning Your Next Jewellery Purchase?
             </h2>
             <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
-              Check today's rates, calculate your estimate and visit Anand Jewellers for expert assistance and bespoke handcrafted designs.
+              Check today's rates, calculate your estimate and visit Shreeji Jewellers for expert assistance and bespoke handcrafted designs.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 justify-center items-center">
@@ -1212,7 +1212,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
                 onClick={() => window.location.href = 'tel:+911234567890'}
                 className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition-all flex items-center gap-2"
               >
-                <Phone className="w-4 h-4" /> Call Anand Jewellers
+                <Phone className="w-4 h-4" /> Call Shreeji Jewellers
               </button>
             </div>
           </div>
