@@ -33,7 +33,7 @@ export function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [goldRate, setGoldRate] = useState(72450);
+  const [goldRate, setGoldRate] = useState(144800); // Updated standard 24K gold rate per 10g (Pune/India regional benchmark)
   const [rateUp, setRateUp] = useState(true);
 
   // Monitor Scroll Position & Direction safely
@@ -64,7 +64,7 @@ export function Navbar() {
   // Live Market Fluctuation Mock
   useEffect(() => {
     const interval = setInterval(() => {
-      const delta = (Math.random() - 0.48) * 80;
+      const delta = (Math.random() - 0.48) * 120;
       setGoldRate((prev) => {
         const next = Math.round(prev + delta);
         setRateUp(delta >= 0);

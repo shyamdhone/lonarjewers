@@ -37,13 +37,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 // --- UTILITY & SHARED COMPONENTS ---
 const LuxuryHeading = ({ subtitle, title, alignment = "center", dark = false }) => (
-  <div className={`space-y-3 mb-16 text-${alignment}`}>
+  <div className={`space-y-3 mb-10 sm:mb-16 text-${alignment}`}>
     {subtitle && (
-      <span className="inline-block text-xs uppercase tracking-[0.4em] text-[#C5A059] font-medium px-4 py-1.5 rounded-full border border-[#C5A059]/30 bg-[#C5A059]/5">
+      <span className="inline-block text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#C5A059] font-medium px-3.5 sm:px-4 py-1.5 rounded-full border border-[#C5A059]/30 bg-[#C5A059]/5">
         {subtitle}
       </span>
     )}
-    <h2 className={`text-3xl sm:text-5xl font-serif tracking-tight ${dark ? 'text-white' : 'text-[#1B1A17]'}`}>
+    <h2 className={`text-2xl sm:text-3xl md:text-5xl font-serif tracking-tight ${dark ? 'text-white' : 'text-[#1B1A17]'}`}>
       {title}
     </h2>
     <div className={`w-16 h-[2px] bg-[#C5A059] mx-auto mt-4 ${alignment === 'left' ? 'mx-0' : alignment === 'right' ? 'ml-auto mr-0' : ''}`} />
@@ -196,7 +196,7 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 2: FULL SCREEN CINEMATIC HERO */}
       {/* =================================================================== */}
-<section className="relative min-h-[100vh] lg:min-h-[105vh] w-full flex items-center justify-center overflow-hidden bg-[#FAF8F5] pt-24 sm:pt-28 pb-20 px-4 sm:px-6 lg:px-12 border-b border-[#C5A059]/20 selection:bg-[#C5A059] selection:text-white">
+<section className="relative min-h-[100svh] lg:min-h-[105vh] w-full flex items-center justify-center overflow-hidden bg-[#FAF8F5] pt-24 sm:pt-28 pb-24 sm:pb-20 px-4 sm:px-6 lg:px-12 border-b border-[#C5A059]/20 selection:bg-[#C5A059] selection:text-white">
 
   {/* LAYER 1: HERO IMAGE WITH CINEMATIC ZOOM, PARALLAX & RIGHT-ASYMMETRIC FOCAL POINT (UNFILTERED & PRISTINE) */}
   <motion.div
@@ -212,7 +212,7 @@ export const Home = () => {
       <img
         src={heroImg}
         alt="Shree Lonar Flagship Heritage Collection"
-        className="w-full h-full object-cover object-[75%_center] sm:object-[80%_20%] lg:object-[85%_15%]"
+        className="w-full h-full object-cover object-[65%_center] sm:object-[80%_20%] lg:object-[85%_15%]"
       />
     </motion.div>
   </motion.div>
@@ -220,25 +220,25 @@ export const Home = () => {
   {/* MULTI-LAYER LIGHTING ARCHITECTURE (HIGH-END EDITORIAL ATMOSPHERE) */}
 
   {/* Layer 1: Warm Ivory Base Fade (Protects Left-Aligned Text Readability) */}
-  <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/90 sm:via-[#FAF8F5]/75 to-transparent lg:w-[72%] pointer-events-none" />
+  <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/95 sm:via-[#FAF8F5]/75 to-[#FAF8F5]/60 sm:to-transparent lg:w-[72%] pointer-events-none" />
 
   {/* Layer 2: Soft Vertical Studio Gradient */}
   <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#FAF8F5] via-transparent to-[#FFFFFF]/40 pointer-events-none" />
 
   {/* Layer 3: Top-Left Golden Sunlight Ray */}
-  <div className="absolute -top-32 -left-32 w-[36rem] sm:w-[50rem] h-[36rem] sm:h-[50rem] bg-gradient-to-br from-[#D4AF37]/30 via-[#C5A059]/15 to-transparent rounded-full filter blur-[140px] pointer-events-none z-[3] animate-pulse" />
+  <div className="absolute -top-32 -left-32 w-[24rem] sm:w-[50rem] h-[24rem] sm:h-[50rem] bg-gradient-to-br from-[#D4AF37]/30 via-[#C5A059]/15 to-transparent rounded-full filter blur-[100px] sm:blur-[140px] pointer-events-none z-[3] animate-pulse" />
 
   {/* Layer 4: Top-Right Soft White Diffused Glow */}
-  <div className="absolute -top-20 -right-20 w-[30rem] sm:w-[40rem] h-[30rem] sm:h-[40rem] bg-gradient-to-bl from-[#FFFFFF]/95 via-[#FDFBF8]/60 to-transparent rounded-full filter blur-[100px] pointer-events-none z-[3]" />
+  <div className="absolute -top-20 -right-20 w-[20rem] sm:w-[40rem] h-[20rem] sm:h-[40rem] bg-gradient-to-bl from-[#FFFFFF]/95 via-[#FDFBF8]/60 to-transparent rounded-full filter blur-[80px] sm:blur-[100px] pointer-events-none z-[3]" />
 
   {/* Layer 5: Jewellery Specular Bloom / Localized Golden Glow */}
-  <div className="absolute top-1/3 right-[10%] sm:right-[18%] w-72 sm:w-96 h-72 sm:h-96 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.28)_0%,_rgba(197,160,89,0.12)_50%,_transparent_70%)] rounded-full filter blur-[60px] pointer-events-none z-[4]" />
+  <div className="absolute top-1/3 right-[10%] sm:right-[18%] w-56 sm:w-96 h-56 sm:h-96 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.28)_0%,_rgba(197,160,89,0.12)_50%,_transparent_70%)] rounded-full filter blur-[50px] sm:blur-[60px] pointer-events-none z-[4]" />
 
   {/* Layer 6: Soft Royal Vignette Frame */}
   <div className="absolute inset-0 z-[5] bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(197,160,89,0.1)_100%)] pointer-events-none" />
 
-  {/* Layer 7: Enhanced Glass Surface Reflection & Luxury Floating Sparkles */}
-  <div className="absolute inset-0 pointer-events-none z-[6] overflow-hidden">
+  {/* Layer 7: Enhanced Glass Surface Reflection & Luxury Floating Sparkles (desktop only — trimmed on mobile for performance) */}
+  <div className="absolute inset-0 pointer-events-none z-[6] overflow-hidden hidden sm:block">
     {/* Floating Bokeh 1 */}
     <motion.div
       animate={{
@@ -284,20 +284,20 @@ export const Home = () => {
   {/* HERO CONTENT CONTAINER - BALANCED FOR MAXIMUM VISUAL IMPACT */}
   <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-    <div className="lg:col-span-8 text-center lg:text-left space-y-7 sm:space-y-9">
+    <div className="lg:col-span-8 text-center lg:text-left space-y-6 sm:space-y-9">
 
       {/* LUXURY HERITAGE PILL BADGE WITH ENTRANCE ANIMATION */}
       <motion.div
         initial={{ opacity: 0, y: -25, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="inline-block"
+        className="inline-block max-w-full"
       >
         <div className="relative group cursor-default">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#C5A059]/50 via-[#D4AF37]/80 to-[#C5A059]/50 rounded-full filter blur-[8px] opacity-80 group-hover:opacity-100 transition duration-500 animate-pulse" />
-          <span className="relative text-[10px] sm:text-[11px] uppercase tracking-[0.45em] text-[#C5A059] font-bold bg-[#FFFFFF]/95 border-2 border-amber-400/40 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-md shadow-[0_4px_30px_rgba(197,160,89,0.2)] inline-flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-[#D4AF37] shadow-[0_0_10px_#D4AF37] animate-ping" />
-            Shree Lonar Flagship Heritage Collection
+          <span className="relative text-[9px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.45em] text-[#C5A059] font-bold bg-[#FFFFFF]/95 border-2 border-amber-400/40 px-4 sm:px-8 py-2 sm:py-3 rounded-full backdrop-blur-md shadow-[0_4px_30px_rgba(197,160,89,0.2)] inline-flex items-center gap-2 sm:gap-3 max-w-full">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D4AF37] shadow-[0_0_10px_#D4AF37] animate-ping shrink-0" />
+            <span className="whitespace-normal sm:whitespace-nowrap">Shreeji Jewellers Lonar Flagship Heritage Collection</span>
           </span>
         </div>
       </motion.div>
@@ -307,7 +307,7 @@ export const Home = () => {
         initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-extralight tracking-tight leading-[1.03] text-[#111111]"
+        className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-extralight tracking-tight leading-[1.08] sm:leading-[1.03] text-[#111111]"
       >
         Timeless Regalia <br />
         <motion.span 
@@ -335,14 +335,14 @@ export const Home = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 max-w-md sm:max-w-none mx-auto"
+        className="pt-2 sm:pt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full max-w-sm sm:max-w-none mx-auto"
       >
         {/* Primary Gold Gloss Button with Sweep Animation */}
         <motion.a
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
           href="#collections"
-          className="group relative w-full sm:w-auto px-10 py-4 sm:py-4.5 bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#C5A059] bg-[length:200%_auto] text-white font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.28em] rounded-full overflow-hidden shadow-[0_12px_35px_rgba(197,160,89,0.35)] hover:shadow-[0_18px_45px_rgba(197,160,89,0.55)] transition-all duration-500 flex items-center justify-center border border-amber-300/40"
+          className="group relative w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#C5A059] bg-[length:200%_auto] text-white font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.28em] rounded-full overflow-hidden shadow-[0_12px_35px_rgba(197,160,89,0.35)] hover:shadow-[0_18px_45px_rgba(197,160,89,0.55)] transition-all duration-500 flex items-center justify-center border border-amber-300/40"
         >
           <span className="relative z-10 flex items-center gap-2">
             Explore Collections
@@ -356,7 +356,7 @@ export const Home = () => {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
           href="#appointment"
-          className="group relative w-full sm:w-auto px-10 py-4 sm:py-4.5 bg-[#FFFFFF]/95 border-2 border-amber-400/50 text-[#111111] font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.28em] rounded-full backdrop-blur-md shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:bg-[#111111] hover:text-[#FFFFFF] hover:border-[#111111] transition-all duration-500 flex items-center justify-center"
+          className="group relative w-full sm:w-auto px-10 py-4 bg-[#FFFFFF]/95 border-2 border-amber-400/50 text-[#111111] font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.28em] rounded-full backdrop-blur-md shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:bg-[#111111] hover:text-[#FFFFFF] hover:border-[#111111] transition-all duration-500 flex items-center justify-center"
         >
           <span className="relative z-10">
             Book VIP Private Viewing
@@ -373,12 +373,12 @@ export const Home = () => {
   <motion.div
     animate={{ y: [0, 8, 0] }}
     transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-    className="absolute bottom-6 sm:bottom-8 z-20 flex flex-col items-center gap-2.5 text-[#666666] cursor-pointer group"
+    className="absolute bottom-4 sm:bottom-8 z-20 flex flex-col items-center gap-2 sm:gap-2.5 text-[#666666] cursor-pointer group"
   >
-    <span className="text-[9px] sm:text-[10px] text-[#C5A059] tracking-[0.35em] uppercase font-bold group-hover:text-[#111111] transition-colors">
+    <span className="text-[8px] sm:text-[10px] text-[#C5A059] tracking-[0.3em] sm:tracking-[0.35em] uppercase font-bold group-hover:text-[#111111] transition-colors">
       Scroll to Discover
     </span>
-    <div className="w-5 h-8 sm:w-5.5 sm:h-8.5 border-2 border-amber-400/60 group-hover:border-[#C5A059] rounded-full flex justify-center p-1 bg-[#FFFFFF]/95 backdrop-blur-md shadow-[0_4px_20px_rgba(197,160,89,0.25)] transition-colors">
+    <div className="w-5 h-8 sm:w-[22px] sm:h-[34px] border-2 border-amber-400/60 group-hover:border-[#C5A059] rounded-full flex justify-center p-1 bg-[#FFFFFF]/95 backdrop-blur-md shadow-[0_4px_20px_rgba(197,160,89,0.25)] transition-colors">
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
@@ -392,20 +392,20 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* EXPERIENCE SHREEJI ON INSTAGRAM SECTION */}
       {/* =================================================================== */}
-     <section className="py-24 bg-[#FAF7F2] text-[#1B1A17] overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-20">
+     <section className="py-16 sm:py-24 bg-[#FAF7F2] text-[#1B1A17] overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 space-y-14 sm:space-y-20">
 
     {/* SECTION HEADER */}
     <div className="text-center space-y-4">
-      <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C5A059] font-semibold">
+      <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[#C5A059] font-semibold">
         <span>Inside</span>
         <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
         <span>Our World</span>
       </div>
-      <h2 className="text-4xl sm:text-6xl font-serif text-[#1B1A17] tracking-tight">
+      <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#1B1A17] tracking-tight px-2">
         Experience Shreeji on Instagram
       </h2>
-      <p className="text-sm sm:text-base text-[#6B655F] max-w-xl mx-auto font-light">
+      <p className="text-xs sm:text-sm md:text-base text-[#6B655F] max-w-xl mx-auto font-light px-4">
         Discover our latest creations, behind-the-scenes moments, happy customers and exclusive launches.
       </p>
       <div className="pt-2">
@@ -413,7 +413,7 @@ export const Home = () => {
           href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-white hover:opacity-95 transition-all text-xs uppercase tracking-widest font-semibold shadow-lg shadow-amber-500/20"
+          className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-white hover:opacity-95 transition-all text-[10px] sm:text-xs uppercase tracking-widest font-semibold shadow-lg shadow-amber-500/20"
         >
           <FiInstagram className="w-4 h-4" /> Follow Us on Instagram <FiArrowRight className="w-4 h-4" />
         </a>
@@ -421,12 +421,12 @@ export const Home = () => {
     </div>
 
     {/* PROFILE CARD */}
-    <div className="bg-gradient-to-br from-white via-amber-50/20 to-amber-100/30 rounded-3xl border border-[#C5A059]/40 p-8 sm:p-10 shadow-xl shadow-amber-900/5 backdrop-blur-md">
+    <div className="bg-gradient-to-br from-white via-amber-50/20 to-amber-100/30 rounded-3xl border border-[#C5A059]/40 p-5 sm:p-8 md:p-10 shadow-xl shadow-amber-900/5 backdrop-blur-md">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
         {/* Left: Avatar & Bio */}
-        <div className="lg:col-span-5 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
-          <div className="relative w-28 h-28 shrink-0 rounded-full p-[3px] bg-gradient-to-tr from-amber-500 via-[#E6CA85] to-purple-600 shadow-xl animate-pulse">
+        <div className="lg:col-span-5 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 text-center sm:text-left">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-full p-[3px] bg-gradient-to-tr from-amber-500 via-[#E6CA85] to-purple-600 shadow-xl animate-pulse">
             <img src={neklace1Img} alt="Shreeji Jewellers" className="w-full h-full object-cover rounded-full border-2 border-white" />
             <span className="absolute bottom-1 right-1 bg-amber-500 text-white p-1 rounded-full text-xs shadow-md">
               <HiOutlineBadgeCheck className="w-4 h-4" />
@@ -434,12 +434,12 @@ export const Home = () => {
           </div>
           <div className="space-y-2">
             <div className="flex items-center justify-center sm:justify-start gap-1.5">
-              <h3 className="font-serif font-bold text-xl text-[#1B1A17]">Shreeji Jewellers</h3>
+              <h3 className="font-serif font-bold text-lg sm:text-xl text-[#1B1A17]">Shreeji Jewellers</h3>
               <HiOutlineBadgeCheck className="w-5 h-5 text-amber-500" />
             </div>
             <p className="text-xs text-amber-700 font-semibold tracking-wide">@shreeji.jewellers</p>
             <p className="text-xs text-[#1B1A17] pt-1 font-medium">Crafting Timeless Jewellery Since 2004</p>
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs text-[#6B655F] pt-1">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 text-[11px] sm:text-xs text-[#6B655F] pt-1">
               <span className="flex items-center gap-1"><FiMapPin className="text-amber-500" /> Maharashtra, India</span>
               <span className="flex items-center gap-1"><FiGlobe className="text-amber-500" /> shreejijewellers.com</span>
             </div>
@@ -447,32 +447,32 @@ export const Home = () => {
         </div>
 
         {/* Middle: Stats */}
-        <div className="lg:col-span-4 grid grid-cols-3 gap-4 border-y lg:border-y-0 lg:border-x border-amber-200/60 py-6 lg:py-0 lg:px-6 text-center">
+        <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 border-y lg:border-y-0 lg:border-x border-amber-200/60 py-6 lg:py-0 lg:px-6 text-center">
           <div className="p-2 rounded-2xl bg-amber-50/50 border border-amber-100/80 shadow-xs">
-            <span className="block font-serif font-bold text-lg text-amber-800">20+</span>
-            <span className="text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Years of Legacy</span>
+            <span className="block font-serif font-bold text-base sm:text-lg text-amber-800">20+</span>
+            <span className="text-[9px] sm:text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Years of Legacy</span>
           </div>
           <div className="p-2 rounded-2xl bg-amber-50/50 border border-amber-100/80 shadow-xs">
-            <span className="block font-serif font-bold text-lg text-amber-800">25K+</span>
-            <span className="text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Happy Families</span>
+            <span className="block font-serif font-bold text-base sm:text-lg text-amber-800">25K+</span>
+            <span className="text-[9px] sm:text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Happy Families</span>
           </div>
           <div className="p-2 rounded-2xl bg-amber-50/50 border border-amber-100/80 shadow-xs">
-            <span className="block font-serif font-bold text-lg text-amber-800">5,000+</span>
-            <span className="text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Designs</span>
+            <span className="block font-serif font-bold text-base sm:text-lg text-amber-800">5,000+</span>
+            <span className="text-[9px] sm:text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Designs</span>
           </div>
           <div className="p-2 rounded-2xl bg-amber-50/50 border border-amber-100/80 shadow-xs">
-            <span className="block font-serif font-bold text-lg text-amber-800 flex items-center justify-center gap-1">
+            <span className="block font-serif font-bold text-base sm:text-lg text-amber-800 flex items-center justify-center gap-1">
               <HiOutlineStar className="text-amber-500 fill-amber-500 w-4 h-4" /> 4.9
             </span>
-            <span className="text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Google Rating</span>
+            <span className="text-[9px] sm:text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Google Rating</span>
           </div>
           <div className="p-2 rounded-2xl bg-amber-50/50 border border-amber-100/80 shadow-xs">
-            <span className="block font-serif font-bold text-lg text-amber-800">100%</span>
-            <span className="text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">BIS Hallmarked</span>
+            <span className="block font-serif font-bold text-base sm:text-lg text-amber-800">100%</span>
+            <span className="text-[9px] sm:text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">BIS Hallmarked</span>
           </div>
           <div className="p-2 rounded-2xl bg-amber-50/50 border border-amber-100/80 shadow-xs">
-            <span className="block font-serif font-bold text-lg text-amber-800">Certified</span>
-            <span className="text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Diamonds</span>
+            <span className="block font-serif font-bold text-base sm:text-lg text-amber-800">Certified</span>
+            <span className="text-[9px] sm:text-[10px] text-[#6B655F] uppercase tracking-wider font-semibold">Diamonds</span>
           </div>
         </div>
 
@@ -506,20 +506,20 @@ export const Home = () => {
     </div>
 
     {/* LATEST REELS (With Support for Live Instagram URLs) */}
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h3 className="font-serif text-xl sm:text-2xl text-[#1B1A17] flex items-center gap-2">
+    <div className="space-y-5 sm:space-y-6">
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <h3 className="font-serif text-lg sm:text-xl md:text-2xl text-[#1B1A17] flex items-center gap-2">
           <span className="p-2 rounded-xl bg-gradient-to-tr from-pink-500 to-amber-500 text-white shadow-md">
             <FiPlay className="w-4 h-4 fill-current" />
           </span> 
           Latest Reels
         </h3>
-        <a href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest text-[#C5A059] font-bold hover:underline flex items-center gap-1">
-          View All Reels on Instagram <FiChevronRight />
+        <a href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1" target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs uppercase tracking-widest text-[#C5A059] font-bold hover:underline flex items-center gap-1">
+          View All <FiChevronRight />
         </a>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
         {[
           {
             id: 1,
@@ -533,7 +533,7 @@ export const Home = () => {
         ].map((reel) => (
           <div
             key={reel.id}
-            className="rounded-3xl overflow-hidden border-2 border-amber-300/40 bg-white p-2.5 shadow-lg shadow-pink-900/5 flex justify-center hover:border-amber-400 transition-all duration-300"
+            className="rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-amber-300/40 bg-white p-1.5 sm:p-2.5 shadow-lg shadow-pink-900/5 flex justify-center hover:border-amber-400 transition-all duration-300"
           >
             {reel.instaUrl ? (
               <blockquote
@@ -547,14 +547,14 @@ export const Home = () => {
             ) : (
               <div
                 onClick={() => setActiveStory({ title: `Reel #${reel.id}`, image: reel.image })}
-                className="group relative w-full aspect-[9/16] rounded-2xl overflow-hidden cursor-pointer bg-neutral-900 shadow-inner"
+                className="group relative w-full aspect-[9/16] rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer bg-neutral-900 shadow-inner"
               >
                 <img src={reel.image} alt="Reel" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-purple-950/20 to-black/30 flex flex-col justify-between p-3.5">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-purple-950/20 to-black/30 flex flex-col justify-between p-2.5 sm:p-3.5">
                   <span className="self-end p-2 rounded-full bg-gradient-to-tr from-amber-500 to-pink-600 text-white shadow-md backdrop-blur-md">
                     <FiInstagram className="w-3.5 h-3.5" />
                   </span>
-                  <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full w-fit text-white text-xs font-semibold border border-white/20 shadow-lg">
+                  <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 sm:px-3 py-1.5 rounded-full w-fit text-white text-[10px] sm:text-xs font-semibold border border-white/20 shadow-lg">
                     <FiPlay className="w-3.5 h-3.5 fill-current text-amber-400" />
                     <span>{reel.views} Views</span>
                   </div>
@@ -567,18 +567,18 @@ export const Home = () => {
     </div>
 
     {/* STORY HIGHLIGHTS */}
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h3 className="font-serif text-xl sm:text-2xl text-[#1B1A17] flex items-center gap-2">
+    <div className="space-y-5 sm:space-y-6">
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <h3 className="font-serif text-lg sm:text-xl md:text-2xl text-[#1B1A17] flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-gradient-to-r from-amber-400 via-pink-500 to-purple-600 shadow-md"></span>
           Story Highlights
         </h3>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest text-[#C5A059] font-bold hover:underline flex items-center gap-1">
-          View All Stories <FiChevronRight />
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs uppercase tracking-widest text-[#C5A059] font-bold hover:underline flex items-center gap-1">
+          View All <FiChevronRight />
         </a>
       </div>
 
-      <div className="flex items-center gap-6 overflow-x-auto pb-4 scrollbar-none">
+      <div className="flex items-center gap-4 sm:gap-6 overflow-x-auto pb-4 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
         {[
           { id: 1, title: 'New Arrivals', image: neklace1Img },
           { id: 2, title: 'Bridal', image: neklace2Img },
@@ -593,34 +593,34 @@ export const Home = () => {
           <div
             key={item.id}
             onClick={() => setActiveStory(item)}
-            className="flex flex-col items-center gap-3 shrink-0 cursor-pointer group"
+            className="flex flex-col items-center gap-2.5 sm:gap-3 shrink-0 cursor-pointer group"
           >
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-tr from-amber-500 via-pink-600 to-purple-600 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-pink-500/20">
+            <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-tr from-amber-500 via-pink-600 to-purple-600 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-pink-500/20">
               <div className="w-full h-full rounded-full p-[2px] bg-white">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-full" />
               </div>
             </div>
-            <span className="text-xs font-semibold text-[#1B1A17] tracking-wide text-center group-hover:text-amber-700 transition-colors">{item.title}</span>
+            <span className="text-[10px] sm:text-xs font-semibold text-[#1B1A17] tracking-wide text-center group-hover:text-amber-700 transition-colors max-w-[64px] sm:max-w-none">{item.title}</span>
           </div>
         ))}
       </div>
     </div>
 
     {/* LATEST INSTAGRAM POSTS */}
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h3 className="font-serif text-xl sm:text-2xl text-[#1B1A17] flex items-center gap-2">
+    <div className="space-y-5 sm:space-y-6">
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <h3 className="font-serif text-lg sm:text-xl md:text-2xl text-[#1B1A17] flex items-center gap-2">
           <span className="p-2 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 text-white shadow-md">
             <FiInstagram className="w-4 h-4" />
           </span>
           Latest Instagram Posts
         </h3>
-        <a href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest text-[#C5A059] font-bold hover:underline flex items-center gap-1">
-          View All Posts on Instagram <FiChevronRight />
+        <a href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1" target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs uppercase tracking-widest text-[#C5A059] font-bold hover:underline flex items-center gap-1">
+          View All <FiChevronRight />
         </a>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-6">
         {[
           { id: 1, image: necklace6Img, likes: '4.5K', comments: '128' },
           { id: 2, image: neklace2Img, likes: '6.2K', comments: '196' },
@@ -632,12 +632,12 @@ export const Home = () => {
           <div
             key={post.id}
             onClick={() => setActiveStory({ title: `Post #${post.id}`, image: post.image })}
-            className="group relative aspect-square rounded-3xl overflow-hidden cursor-pointer shadow-lg shadow-amber-900/10 border-2 border-amber-200/50 bg-neutral-900"
+            className="group relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer shadow-lg shadow-amber-900/10 border-2 border-amber-200/50 bg-neutral-900"
           >
             <img src={post.image} alt="Post" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-purple-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 text-white text-xs font-bold backdrop-blur-xs">
-              <span className="flex items-center gap-1.5 bg-black/40 px-3 py-1.5 rounded-full border border-white/20"><FiHeart className="fill-current text-rose-500 w-3.5 h-3.5" /> {post.likes}</span>
-              <span className="flex items-center gap-1.5 bg-black/40 px-3 py-1.5 rounded-full border border-white/20"><FiMessageCircle className="fill-current text-amber-400 w-3.5 h-3.5" /> {post.comments}</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-purple-950/40 to-transparent opacity-0 group-hover:opacity-100 active:opacity-100 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-4 text-white text-[10px] sm:text-xs font-bold backdrop-blur-xs">
+              <span className="flex items-center gap-1 sm:gap-1.5 bg-black/40 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20"><FiHeart className="fill-current text-rose-500 w-3 sm:w-3.5 h-3 sm:h-3.5" /> {post.likes}</span>
+              <span className="flex items-center gap-1 sm:gap-1.5 bg-black/40 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20"><FiMessageCircle className="fill-current text-amber-400 w-3 sm:w-3.5 h-3 sm:h-3.5" /> {post.comments}</span>
             </div>
           </div>
         ))}
@@ -645,9 +645,9 @@ export const Home = () => {
     </div>
 
     {/* CUSTOMER MOMENTS */}
-    <div className="bg-gradient-to-br from-white via-amber-50/30 to-amber-100/40 rounded-3xl border border-[#C5A059]/30 p-8 sm:p-10 shadow-xl shadow-amber-900/5 space-y-6">
+    <div className="bg-gradient-to-br from-white via-amber-50/30 to-amber-100/40 rounded-3xl border border-[#C5A059]/30 p-5 sm:p-8 md:p-10 shadow-xl shadow-amber-900/5 space-y-5 sm:space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h3 className="font-serif text-xl sm:text-2xl text-[#1B1A17] flex items-center gap-2">
+        <h3 className="font-serif text-lg sm:text-xl md:text-2xl text-[#1B1A17] flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-amber-500 shadow-md"></span>
           Customer Moments
         </h3>
@@ -655,28 +655,28 @@ export const Home = () => {
           href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-white text-xs uppercase tracking-widest rounded-full font-bold hover:opacity-95 transition-all shadow-md inline-flex items-center justify-center gap-2"
+          className="px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-white text-[10px] sm:text-xs uppercase tracking-widest rounded-full font-bold hover:opacity-95 transition-all shadow-md inline-flex items-center justify-center gap-2 w-fit"
         >
           <FiInstagram /> Share Your Moment
         </a>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
         {[neklace1Img, neklace2Img, jumkas6Img, neklasc5Img, necklace6Img, jumkas5Img].map((img, index) => (
-          <div key={index} className="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-amber-300/40 shadow-md bg-white p-1.5 hover:scale-[1.02] transition-transform duration-300">
-            <img src={img} alt={`Customer moment ${index}`} className="w-full h-full object-cover rounded-xl" />
+          <div key={index} className="aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden border-2 border-amber-300/40 shadow-md bg-white p-1 sm:p-1.5 hover:scale-[1.02] transition-transform duration-300">
+            <img src={img} alt={`Customer moment ${index}`} className="w-full h-full object-cover rounded-lg sm:rounded-xl" />
           </div>
         ))}
       </div>
     </div>
 
     {/* BOTTOM BANNER */}
-    <div className="relative rounded-3xl overflow-hidden border border-[#C5A059]/40 bg-gradient-to-r from-neutral-950 via-neutral-900 to-neutral-950 text-white p-8 sm:p-14 text-center shadow-2xl">
+    <div className="relative rounded-3xl overflow-hidden border border-[#C5A059]/40 bg-gradient-to-r from-neutral-950 via-neutral-900 to-neutral-950 text-white p-6 sm:p-10 md:p-14 text-center shadow-2xl">
       <div className="absolute inset-0 opacity-25 pointer-events-none">
         <img src={neklace1Img} alt="Background pattern" className="w-full h-full object-cover filter blur-sm scale-110" />
       </div>
       <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-        <h3 className="font-serif text-3xl sm:text-4xl text-white font-bold">Stay Updated With Our Latest Creations</h3>
+        <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-bold">Stay Updated With Our Latest Creations</h3>
         <p className="text-xs sm:text-sm text-amber-100/80 font-light">
           Follow us on Instagram and be the first to see our new collections, exclusive offers and behind-the-scenes moments.
         </p>
@@ -685,7 +685,7 @@ export const Home = () => {
             href="https://www.instagram.com/shreeji__jewellers_lonar/?__pwa=1"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-white text-xs uppercase tracking-widest rounded-full font-bold hover:opacity-95 transition-all shadow-xl shadow-amber-500/20"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-white text-[10px] sm:text-xs uppercase tracking-widest rounded-full font-bold hover:opacity-95 transition-all shadow-xl shadow-amber-500/20"
           >
             <FiInstagram /> Follow @shreeji.jewellers <FiArrowRight />
           </a>
@@ -702,9 +702,9 @@ export const Home = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
       >
-        <div className="relative w-full max-w-sm h-[80vh] bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-500/30 flex flex-col justify-between">
+        <div className="relative w-full max-w-sm h-[85vh] sm:h-[80vh] bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-500/30 flex flex-col justify-between">
 
           <div className="absolute top-0 inset-x-0 z-20 p-4 bg-gradient-to-b from-black/80 to-transparent flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -716,7 +716,8 @@ export const Home = () => {
             </div>
             <button
               onClick={() => setActiveStory(null)}
-              className="p-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-all"
+              className="p-2.5 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-all"
+              aria-label="Close"
             >
               <FiX className="w-4 h-4" />
             </button>
@@ -732,7 +733,7 @@ export const Home = () => {
               placeholder="Reply to story..."
               className="w-full bg-white/10 border border-white/25 text-white placeholder-neutral-400 text-xs px-4 py-3 rounded-full focus:outline-none focus:border-amber-500 shadow-inner"
             />
-            <button className="p-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-full hover:opacity-90 transition-all shadow-md">
+            <button className="p-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-full hover:opacity-90 transition-all shadow-md shrink-0" aria-label="Send">
               <FiSend className="w-4 h-4" />
             </button>
           </div>
@@ -747,11 +748,11 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 4: TRENDING COLLECTIONS */}
       {/* =================================================================== */}
-    <section id="collections" className="py-28 bg-gradient-to-b from-[#F5F1EB] via-amber-50/20 to-[#F5F1EB]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section id="collections" className="py-16 sm:py-28 bg-gradient-to-b from-[#F5F1EB] via-amber-50/20 to-[#F5F1EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <LuxuryHeading subtitle="Curated Masterpieces" title="Trending Collections" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {trendingCollections.map((col) => (
               <motion.div 
                 key={col.id} 
@@ -764,9 +765,9 @@ export const Home = () => {
                     {col.count}
                   </span>
                   <img src={col.image} alt={col.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute bottom-6 left-6 right-6 z-20 text-white space-y-2">
+                  <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6 z-20 text-white space-y-2">
                     <p className="text-xs uppercase tracking-[0.2em] text-amber-300 font-bold drop-shadow-sm">{col.subtitle}</p>
-                    <h3 className="font-serif text-2xl font-semibold tracking-wide text-white drop-shadow-md">{col.title}</h3>
+                    <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-wide text-white drop-shadow-md">{col.title}</h3>
                     <div className="pt-2 flex items-center gap-2 text-xs uppercase tracking-widest text-amber-300 font-bold group-hover:translate-x-2 transition-transform">
                       <span>Explore Suite</span> <FiArrowRight className="w-4 h-4" />
                     </div>
@@ -781,18 +782,18 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 5: BEST SELLING PRODUCTS */}
       {/* =================================================================== */}
-      <section className="py-28 bg-gradient-to-b from-[#FAF8F5] via-amber-50/30 to-[#FAF8F5] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <section className="py-16 sm:py-28 bg-gradient-to-b from-[#FAF8F5] via-amber-50/30 to-[#FAF8F5] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6">
             <div className="space-y-2">
-              <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C5A059] font-bold">
+              <span className="inline-flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[#C5A059] font-bold">
                 <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-ping" /> Most Desired
               </span>
-              <h2 className="text-3xl sm:text-5xl font-serif text-[#1B1A17] tracking-tight">Best Selling Products</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif text-[#1B1A17] tracking-tight">Best Selling Products</h2>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {bestSellingProducts
               .filter(p => activeProductTab === 'All' || p.category === activeProductTab)
               .map((product) => (
@@ -806,38 +807,38 @@ export const Home = () => {
                 className="group bg-white rounded-3xl overflow-hidden border-2 border-amber-300/40 shadow-xl shadow-amber-950/5 hover:shadow-2xl hover:shadow-amber-900/10 transition-all duration-500 flex flex-col justify-between"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
-                  <span className="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md text-amber-200 text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-bold border border-amber-400/30 shadow-md">
+                  <span className="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md text-amber-200 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-full font-bold border border-amber-400/30 shadow-md">
                     {product.badge}
                   </span>
-                  <span className="absolute top-3 right-3 z-10 bg-gradient-to-r from-amber-500 to-yellow-600 text-white text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-extrabold shadow-md">
+                  <span className="absolute top-3 right-3 z-10 bg-gradient-to-r from-amber-500 to-yellow-600 text-white text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-full font-extrabold shadow-md">
                     {product.discount}
                   </span>
                   
                   <img src={product.image} alt={product.name} className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700" />
                 </div>
 
-                <div className="p-6 space-y-4 flex flex-col justify-between flex-grow bg-gradient-to-b from-white to-amber-50/20">
+                <div className="p-5 sm:p-6 space-y-3 sm:space-y-4 flex flex-col justify-between flex-grow bg-gradient-to-b from-white to-amber-50/20">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase tracking-widest text-[#C5A059] font-bold">{product.category}</span>
+                      <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#C5A059] font-bold">{product.category}</span>
                       <div className="flex items-center gap-1 text-xs text-amber-600 font-bold bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                         <FiStar className="fill-current w-3 h-3 text-amber-500" />
                         <span>{product.rating}</span>
                         <span className="text-[10px] text-[#6B655F] font-normal">({product.reviews})</span>
                       </div>
                     </div>
-                    <h3 className="font-serif text-base font-semibold text-[#1B1A17] group-hover:text-amber-700 transition-colors line-clamp-1">{product.name}</h3>
+                    <h3 className="font-serif text-sm sm:text-base font-semibold text-[#1B1A17] group-hover:text-amber-700 transition-colors line-clamp-1">{product.name}</h3>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-amber-100">
+                  <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-amber-100 flex-wrap gap-2">
                     <div>
-                      <span className="font-serif font-bold text-lg text-[#1B1A17]">{product.price}</span>
-                      <span className="text-xs text-[#6B655F] line-through ml-2 font-medium">{product.oldPrice}</span>
+                      <span className="font-serif font-bold text-base sm:text-lg text-[#1B1A17]">{product.price}</span>
+                      <span className="text-[10px] sm:text-xs text-[#6B655F] line-through ml-2 font-medium">{product.oldPrice}</span>
                     </div>
                     <Link to="/store">
                       <motion.button 
                         whileTap={{ scale: 0.95 }}
-                        className="px-5 py-2.5 bg-gradient-to-r from-[#1B1A17] to-neutral-900 text-white text-[11px] uppercase tracking-widest font-bold rounded-full hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-600 hover:text-black transition-all shadow-md"
+                        className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#1B1A17] to-neutral-900 text-white text-[10px] sm:text-[11px] uppercase tracking-widest font-bold rounded-full hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-600 hover:text-black transition-all shadow-md"
                       >
                         Quick View
                       </motion.button>
@@ -853,24 +854,24 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 6: FEATURED COLLECTION BANNER */}
       {/* =================================================================== */}
-      <section className="relative py-32 bg-black text-white overflow-hidden">
+      <section className="relative py-20 sm:py-32 bg-black text-white overflow-hidden">
         <div className="absolute inset-0 opacity-45">
           <img src={neklasce4Img} alt="Cinematic Banner" className="w-full h-full object-cover filter brightness-50 scale-105 hover:scale-100 transition-transform duration-1000" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30 pointer-events-none" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
-          <span className="inline-block text-xs uppercase tracking-[0.4em] text-amber-400 font-extrabold bg-black/40 px-4 py-1.5 rounded-full border border-amber-500/30 backdrop-blur-md shadow-lg">
+          <span className="inline-block text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-amber-400 font-extrabold bg-black/40 px-4 py-1.5 rounded-full border border-amber-500/30 backdrop-blur-md shadow-lg">
             Royal Heirloom Spotlight
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-extralight leading-tight text-amber-50 drop-shadow-lg">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif font-extralight leading-snug sm:leading-tight text-amber-50 drop-shadow-lg">
             "Where timeless Indian heritage meets avant-garde luxury design."
           </h2>
           <div className="w-20 h-[3px] bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 mx-auto rounded-full shadow-md" />
           <div className="pt-4">
             <a 
               href="#appointment" 
-              className="inline-flex items-center gap-2 px-9 py-4 bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-black font-extrabold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-2xl shadow-amber-500/20 hover:scale-105"
+              className="inline-flex items-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 bg-gradient-to-r from-amber-500 via-[#C5A059] to-yellow-600 text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-2xl shadow-amber-500/20 hover:scale-105"
             >
               Discover The Vault <FiArrowRight className="w-4 h-4" />
             </a>
@@ -880,24 +881,24 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 7: SHOP BY CATEGORY */}
       {/* =================================================================== */}
-      <section id="categories" className="py-28 bg-gradient-to-b from-[#F5F1EB] via-amber-50/20 to-[#F5F1EB]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section id="categories" className="py-16 sm:py-28 bg-gradient-to-b from-[#F5F1EB] via-amber-50/20 to-[#F5F1EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <LuxuryHeading subtitle="Explore Vault" title="Shop By Category" />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {categories.map((cat, idx) => (
               <motion.div 
                 key={idx} 
                 whileHover={{ y: -8 }} 
-                className="reveal-up group bg-gradient-to-br from-white via-amber-50/30 to-amber-100/40 p-5 rounded-3xl border-2 border-amber-300/40 shadow-xl shadow-amber-900/5 hover:shadow-2xl hover:shadow-amber-900/15 hover:border-amber-400 transition-all duration-300 flex items-center gap-5 cursor-pointer"
+                className="reveal-up group bg-gradient-to-br from-white via-amber-50/30 to-amber-100/40 p-4 sm:p-5 rounded-3xl border-2 border-amber-300/40 shadow-xl shadow-amber-900/5 hover:shadow-2xl hover:shadow-amber-900/15 hover:border-amber-400 transition-all duration-300 flex items-center gap-4 sm:gap-5 cursor-pointer"
               >
-                <div className="w-20 h-20 rounded-2xl overflow-hidden bg-white shrink-0 relative shadow-md border border-amber-200 p-1">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-white shrink-0 relative shadow-md border border-amber-200 p-1">
                   <img src={cat.image} alt={cat.name} className="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <div>
-                  <h4 className="font-serif text-base font-bold text-[#1B1A17] group-hover:text-amber-700 transition-colors">{cat.name}</h4>
-                  <p className="text-xs text-[#6B655F] font-semibold uppercase tracking-wider mt-1">{cat.count}</p>
-                  <span className="text-[10px] text-amber-600 font-extrabold uppercase tracking-widest mt-2 inline-flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform">
+                <div className="min-w-0">
+                  <h4 className="font-serif text-sm sm:text-base font-bold text-[#1B1A17] group-hover:text-amber-700 transition-colors truncate">{cat.name}</h4>
+                  <p className="text-[11px] sm:text-xs text-[#6B655F] font-semibold uppercase tracking-wider mt-1">{cat.count}</p>
+                  <span className="text-[9px] sm:text-[10px] text-amber-600 font-extrabold uppercase tracking-widest mt-2 inline-flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform">
                     Explore <FiArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -909,17 +910,17 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 8: WHY CHOOSE US */}
       {/* =================================================================== */}
-      <section className="py-28 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-16 sm:py-28 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <LuxuryHeading subtitle="The Shree Lonar Advantage" title="Why Discerning Connoisseurs Choose Us" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {whyChooseUs.map((item, idx) => (
-              <motion.div key={idx} whileHover={{ y: -6 }} className="reveal-up bg-white p-8 rounded-2xl border border-[#C5A059]/20 shadow-sm hover:border-[#C5A059] transition-all space-y-4">
+              <motion.div key={idx} whileHover={{ y: -6 }} className="reveal-up bg-white p-6 sm:p-8 rounded-2xl border border-[#C5A059]/20 shadow-sm hover:border-[#C5A059] transition-all space-y-3 sm:space-y-4">
                 <div className="p-3.5 bg-[#FAF8F5] w-fit rounded-xl border border-[#C5A059]/20">
                   {item.icon}
                 </div>
-                <h3 className="font-serif text-xl font-bold text-[#1B1A17]">{item.title}</h3>
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1B1A17]">{item.title}</h3>
                 <p className="text-xs sm:text-sm text-[#6B655F] leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
@@ -930,39 +931,39 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 9: LIMITED EDITION COUNTDOWN BANNER */}
       {/* =================================================================== */}
-      <section className="py-24 bg-gradient-to-r from-[#1B1A17] to-[#2C2A25] text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-gradient-to-r from-[#1B1A17] to-[#2C2A25] text-white relative overflow-hidden">
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
           <img src={jumkas7Img} alt="Background" className="w-full h-full object-cover" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 sm:gap-12">
           <div className="space-y-4 max-w-xl text-center lg:text-left">
-            <span className="text-xs uppercase tracking-[0.4em] text-[#C5A059] font-medium">Exclusive Release</span>
-            <h2 className="text-3xl sm:text-5xl font-serif font-light leading-tight">The 20th Anniversary Royal Polki Vault</h2>
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#C5A059] font-medium">Exclusive Release</span>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif font-light leading-tight">The 20th Anniversary Royal Polki Vault</h2>
             <p className="text-xs sm:text-sm text-neutral-300">Only 50 hand-crafted pieces released worldwide. Each set comes with an archival royal certificate and private vault registration.</p>
 
             {/* Countdown Timers */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 pt-4">
-              <div className="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/10 text-center min-w-[70px]">
-                <span className="block font-serif text-2xl font-bold text-[#C5A059]">{countdown.days}</span>
-                <span className="text-[9px] uppercase tracking-widest text-neutral-300">Days</span>
+            <div className="flex items-center justify-center lg:justify-start gap-2.5 sm:gap-4 pt-4 flex-wrap">
+              <div className="bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-white/10 text-center min-w-[62px] sm:min-w-[70px]">
+                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#C5A059]">{countdown.days}</span>
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-neutral-300">Days</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/10 text-center min-w-[70px]">
-                <span className="block font-serif text-2xl font-bold text-[#C5A059]">{countdown.hours}</span>
-                <span className="text-[9px] uppercase tracking-widest text-neutral-300">Hours</span>
+              <div className="bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-white/10 text-center min-w-[62px] sm:min-w-[70px]">
+                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#C5A059]">{countdown.hours}</span>
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-neutral-300">Hours</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/10 text-center min-w-[70px]">
-                <span className="block font-serif text-2xl font-bold text-[#C5A059]">{countdown.minutes}</span>
-                <span className="text-[9px] uppercase tracking-widest text-neutral-300">Mins</span>
+              <div className="bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-white/10 text-center min-w-[62px] sm:min-w-[70px]">
+                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#C5A059]">{countdown.minutes}</span>
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-neutral-300">Mins</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/10 text-center min-w-[70px]">
-                <span className="block font-serif text-2xl font-bold text-[#C5A059]">{countdown.seconds}</span>
-                <span className="text-[9px] uppercase tracking-widest text-neutral-300">Secs</span>
+              <div className="bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-white/10 text-center min-w-[62px] sm:min-w-[70px]">
+                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#C5A059]">{countdown.seconds}</span>
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-neutral-300">Secs</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl text-[#1B1A17] max-w-md w-full shadow-2xl space-y-6 border border-[#C5A059]/40">
-            <h3 className="font-serif text-xl font-bold">Secure Your Allocation</h3>
+          <div className="bg-white p-6 sm:p-8 rounded-2xl text-[#1B1A17] max-w-md w-full shadow-2xl space-y-5 sm:space-y-6 border border-[#C5A059]/40">
+            <h3 className="font-serif text-lg sm:text-xl font-bold">Secure Your Allocation</h3>
             <p className="text-xs text-[#6B655F]">Enter your priority client email to receive exclusive access links when the vault opens.</p>
             <div className="space-y-4">
               <input
@@ -986,18 +987,18 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 10: ATELIER CRAFTSMANSHIP PROCESS */}
       {/* =================================================================== */}
-      <section id="craftsmanship" className="py-28 bg-[#F5F1EB]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section id="craftsmanship" className="py-16 sm:py-28 bg-[#F5F1EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <LuxuryHeading subtitle="Master Artisans" title="The Art of High Jewellery" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {craftsmanshipSteps.map((step, idx) => (
-              <motion.div key={idx} whileHover={{ y: -6 }} className="reveal-up bg-white p-8 rounded-2xl border border-[#C5A059]/20 shadow-sm space-y-4 relative overflow-hidden group">
-                <span className="absolute top-4 right-6 font-serif text-4xl font-bold text-[#C5A059]/20 group-hover:text-[#C5A059]/40 transition-colors">
+              <motion.div key={idx} whileHover={{ y: -6 }} className="reveal-up bg-white p-6 sm:p-8 rounded-2xl border border-[#C5A059]/20 shadow-sm space-y-3 sm:space-y-4 relative overflow-hidden group">
+                <span className="absolute top-4 right-6 font-serif text-3xl sm:text-4xl font-bold text-[#C5A059]/20 group-hover:text-[#C5A059]/40 transition-colors">
                   {step.step}
                 </span>
                 <div className="w-10 h-[2px] bg-[#C5A059]" />
-                <h3 className="font-serif text-lg font-bold text-[#1B1A17]">{step.title}</h3>
+                <h3 className="font-serif text-base sm:text-lg font-bold text-[#1B1A17]">{step.title}</h3>
                 <p className="text-xs text-[#6B655F] leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -1008,13 +1009,13 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 11: TESTIMONIALS & REVIEWS */}
       {/* =================================================================== */}
-      <section className="py-28 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-16 sm:py-28 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <LuxuryHeading subtitle="Clientele Voices" title="Words From Our Patrons" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((t, idx) => (
-              <motion.div key={idx} whileHover={{ y: -6 }} className="reveal-up bg-white p-8 rounded-2xl border border-[#C5A059]/20 shadow-sm flex flex-col justify-between space-y-6">
+              <motion.div key={idx} whileHover={{ y: -6 }} className="reveal-up bg-white p-6 sm:p-8 rounded-2xl border border-[#C5A059]/20 shadow-sm flex flex-col justify-between space-y-5 sm:space-y-6">
                 <div className="space-y-4">
                   <div className="flex gap-1 text-amber-500">
                     {[...Array(t.rating)].map((_, i) => (
@@ -1039,36 +1040,36 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 12: VIP APPOINTMENT BOOKING FORM */}
       {/* =================================================================== */}
-      <section id="appointment" className="py-28 bg-[#F5F1EB] border-t border-[#C5A059]/20">
-        <div className="max-w-5xl mx-auto px-6">
+      <section id="appointment" className="py-16 sm:py-28 bg-[#F5F1EB] border-t border-[#C5A059]/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="bg-white rounded-3xl border border-[#C5A059]/30 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
-            <div className="p-10 lg:p-14 bg-[#1B1A17] text-white flex flex-col justify-between space-y-8">
+            <div className="p-8 sm:p-10 lg:p-14 bg-[#1B1A17] text-white flex flex-col justify-between space-y-8">
               <div className="space-y-4">
-                <span className="text-xs uppercase tracking-[0.4em] text-[#C5A059]">Private Consultation</span>
-                <h2 className="text-3xl font-serif font-light">Book Your Exclusive Private Viewing</h2>
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#C5A059]">Private Consultation</span>
+                <h2 className="text-2xl sm:text-3xl font-serif font-light">Book Your Exclusive Private Viewing</h2>
                 <p className="text-xs text-neutral-300 leading-relaxed">Experience our high jewellery vaults with dedicated private consultants, champagne service, and custom design previews.</p>
               </div>
               <div className="space-y-4 text-xs text-neutral-300">
                 <div className="flex items-center gap-3">
-                  <FiMapPin className="w-4 h-4 text-[#C5A059]" />
+                  <FiMapPin className="w-4 h-4 text-[#C5A059] shrink-0" />
                   <span>Flagship Atelier: Mumbai & Pune</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FiPhone className="w-4 h-4 text-[#C5A059]" />
+                  <FiPhone className="w-4 h-4 text-[#C5A059] shrink-0" />
                   <span>+91 98230 55000 / VIP Line</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FiClock className="w-4 h-4 text-[#C5A059]" />
+                  <FiClock className="w-4 h-4 text-[#C5A059] shrink-0" />
                   <span>Monday – Sunday: 10:30 AM – 8:30 PM</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-10 lg:p-14 flex flex-col justify-center">
+            <div className="p-8 sm:p-10 lg:p-14 flex flex-col justify-center">
               {appointmentSubmitted ? (
-                <div className="text-center space-y-4 py-12">
+                <div className="text-center space-y-4 py-10 sm:py-12">
                   <FiCheckCircle className="w-16 h-16 text-[#C5A059] mx-auto" />
-                  <h3 className="font-serif text-2xl font-bold">Appointment Confirmed</h3>
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold">Appointment Confirmed</h3>
                   <p className="text-xs text-[#6B655F]">Our senior concierge will reach out to you within 2 hours to finalize your private viewing slot.</p>
                   <button onClick={() => setAppointmentSubmitted(false)} className="px-6 py-2.5 bg-[#1B1A17] text-white text-xs uppercase tracking-widest rounded-full">
                     Book Another
@@ -1076,7 +1077,7 @@ export const Home = () => {
                 </div>
               ) : (
                 <form onSubmit={(e) => { e.preventDefault(); setAppointmentSubmitted(true); }} className="space-y-4">
-                  <h3 className="font-serif text-xl font-bold text-[#1B1A17] mb-2">Request Consultation</h3>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1B1A17] mb-2">Request Consultation</h3>
                   <div>
                     <label className="block text-[10px] uppercase tracking-widest text-[#6B655F] mb-1">Full Name</label>
                     <input
@@ -1085,7 +1086,7 @@ export const Home = () => {
                       value={appointmentForm.name}
                       onChange={e => setAppointmentForm({...appointmentForm, name: e.target.value})}
                       placeholder="Enter your full name"
-                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-xs focus:outline-none focus:border-[#C5A059]"
+                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-sm sm:text-xs focus:outline-none focus:border-[#C5A059]"
                     />
                   </div>
                   <div>
@@ -1096,7 +1097,7 @@ export const Home = () => {
                       value={appointmentForm.phone}
                       onChange={e => setAppointmentForm({...appointmentForm, phone: e.target.value})}
                       placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-xs focus:outline-none focus:border-[#C5A059]"
+                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-sm sm:text-xs focus:outline-none focus:border-[#C5A059]"
                     />
                   </div>
                   <div>
@@ -1104,7 +1105,7 @@ export const Home = () => {
                     <select
                       value={appointmentForm.store}
                       onChange={e => setAppointmentForm({...appointmentForm, store: e.target.value})}
-                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-xs focus:outline-none focus:border-[#C5A059]"
+                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-sm sm:text-xs focus:outline-none focus:border-[#C5A059]"
                     >
                       <option value="Mumbai Flagship Atelier">Mumbai Flagship Atelier</option>
                       <option value="Pune Heritage Gallery">Pune Heritage Gallery</option>
@@ -1118,7 +1119,7 @@ export const Home = () => {
                       required
                       value={appointmentForm.date}
                       onChange={e => setAppointmentForm({...appointmentForm, date: e.target.value})}
-                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-xs focus:outline-none focus:border-[#C5A059]"
+                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#C5A059]/30 text-sm sm:text-xs focus:outline-none focus:border-[#C5A059]"
                     />
                   </div>
                   <button type="submit" className="w-full py-4 bg-[#1B1A17] text-white text-xs uppercase tracking-widest rounded-xl hover:bg-[#C5A059] hover:text-black transition-all font-medium mt-2">
@@ -1134,22 +1135,22 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 13: FAQ ACCORDION */}
       {/* =================================================================== */}
-      <section className="py-28 bg-[#FAF8F5]">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="py-16 sm:py-28 bg-[#FAF8F5]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <LuxuryHeading subtitle="Got Questions?" title="Frequently Asked Questions" />
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-[#C5A059]/20 overflow-hidden shadow-sm">
                 <button
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-base font-medium text-[#1B1A17]"
+                  className="w-full px-5 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 font-serif text-sm sm:text-base font-medium text-[#1B1A17]"
                 >
                   <span>{faq.q}</span>
-                  <span className="text-[#C5A059] text-xl font-light">{activeFaq === idx ? '−' : '+'}</span>
+                  <span className="text-[#C5A059] text-xl font-light shrink-0">{activeFaq === idx ? '−' : '+'}</span>
                 </button>
                 {activeFaq === idx && (
-                  <div className="px-6 pb-5 text-xs sm:text-sm text-[#6B655F] leading-relaxed border-t border-neutral-100 pt-3">
+                  <div className="px-5 sm:px-6 pb-5 text-xs sm:text-sm text-[#6B655F] leading-relaxed border-t border-neutral-100 pt-3">
                     {faq.a}
                   </div>
                 )}
@@ -1162,12 +1163,12 @@ export const Home = () => {
       {/* =================================================================== */}
       {/* SECTION 14: LUXURY FOOTER */}
       {/* =================================================================== */}
-      <footer className="bg-[#1B1A17] text-white pt-20 pb-12 border-t border-[#C5A059]/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
+      <footer className="bg-[#1B1A17] text-white pt-16 sm:pt-20 pb-10 sm:pb-12 border-t border-[#C5A059]/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-12 pb-12 sm:pb-16 border-b border-white/10">
 
-          <div className="lg:col-span-2 space-y-6">
-            <span className="font-serif text-2xl font-light tracking-[0.25em] block">SHREE LONAR</span>
-            <span className="block text-[9px] uppercase tracking-[0.4em] text-[#C5A059] -mt-4">Fine Jewellery Atelier</span>
+          <div className="sm:col-span-2 lg:col-span-2 space-y-5 sm:space-y-6">
+            <span className="font-serif text-xl sm:text-2xl font-light tracking-[0.25em] block">SHREE LONAR</span>
+            <span className="block text-[9px] uppercase tracking-[0.4em] text-[#C5A059] -mt-3 sm:-mt-4">Fine Jewellery Atelier</span>
             <p className="text-xs text-neutral-400 leading-relaxed max-w-sm">
               Creating exquisite BIS Hallmarked gold, certified diamond, and traditional temple jewellery heirlooms with unmatched dedication to purity and craftsmanship.
             </p>
@@ -1198,7 +1199,7 @@ export const Home = () => {
             </ul>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <h4 className="font-serif text-sm uppercase tracking-widest text-[#C5A059]">Atelier Contact</h4>
             <ul className="space-y-3 text-xs text-neutral-300">
               <li className="flex items-start gap-2.5">
@@ -1218,9 +1219,9 @@ export const Home = () => {
 
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
-          <p>© 2026 Shree Lonar Fine Jewellery Atelier. All Rights Reserved.</p>
-          <div className="flex items-center space-x-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+          <p className="text-center sm:text-left">© 2026 Shree Lonar Fine Jewellery Atelier. All Rights Reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <a href="#" className="hover:text-[#C5A059] transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-[#C5A059] transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-[#C5A059] transition-colors">Hallmarking Guarantee</a>

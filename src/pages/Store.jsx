@@ -1,8 +1,4 @@
-import React, { useState, useMemo } from 'react';
-import { Hero } from '../components/Hero';
-import { ProductCard } from '../components/ProductCard';
-import { QuickViewModal } from '../components/Modal';
-import { useScrollReveal } from '../hooks/useAnimation';
+import React, { useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FiSearch, 
@@ -12,10 +8,14 @@ import {
   FiRotateCcw, 
   FiGrid, 
   FiPackage,
-  FiChevronRight
+  FiChevronRight,
+  FiHeart,
+  FiEye,
+  FiStar,
+  FiArrowDown
 } from 'react-icons/fi';
 
-// Local Assets - Cleaned up to include only the active images used in the products list
+// Local Image Assets
 import jumkas3Img from '../assets/images/jumkas3.jpg';
 import jumkas4Img from '../assets/images/jumkas4.jpg';
 import jumkas5Img from '../assets/images/jumkas5.jpg';
@@ -32,11 +32,227 @@ import neklace1Img from '../assets/images/neklace1.jpg';
 import neklace2Img from '../assets/images/neklace2.jpg';
 import neklasc5Img from '../assets/images/neklasc5.jpg';
 import neklasce4Img from '../assets/images/neklasce4.jpg';
-import backgroud from "../assets/images/jewelry.jpg"
+import backgroud from '../assets/images/About.jpg';
 
+/** ------------------------------------------------------------------
+ * HERO / BANNER COMPONENT (FULL SIZE & ORIGINAL CLARITY)
+ * ------------------------------------------------------------------ */
+const Hero = ({ title, subtitle, image, onExploreClick }) => (
+  <div className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center text-center px-4 overflow-hidden">
+    {/* Background Image: Full Size Cover with Zero Scaling/Blur Distortion */}
+    <div 
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+      style={{ backgroundImage: `url(${image})` }} 
+    />
+    
+    {/* Balanced Dark Gradient Overlay (Preserves background visibility while making text pop) */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#FAF8F5]/90" />
+
+    {/* Hero Content Wrapper */}
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="relative z-10 max-w-2xl mx-auto space-y-5 flex flex-col items-center mt-12"
+    >
+      {/* Editorial Eyebrow Tag */}
+      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/40 border border-[#C5A059]/50 backdrop-blur-md shadow-sm">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+        <span className="text-[#EED7A1] text-[10px] font-bold tracking-[0.25em] uppercase">
+          Haute Horlogerie & Jewels
+        </span>
+      </div>
+
+      {/* Main Title */}
+      <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white drop-shadow-md leading-tight">
+        Our <span className="bg-gradient-to-r from-[#F7E7C4] via-[#D4AF37] to-[#AA7C11] bg-clip-text text-transparent">Masterpiece</span> Gallery
+      </h1>
+
+      {/* Subtitle */}
+      <p className="text-xs sm:text-sm text-stone-200 font-light max-w-lg leading-relaxed drop-shadow-sm">
+        {subtitle}
+      </p>
+
+      {/* Clean Divider Line */}
+      <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent my-1" />
+
+      {/* Action Buttons */}
+      <div className="pt-2 flex flex-col sm:flex-row gap-3 items-center justify-center w-full sm:w-auto">
+        <button 
+          onClick={onExploreClick}
+          className="w-full sm:w-auto px-7 py-3 bg-gradient-to-r from-[#D4AF37] to-[#AA7C11] text-black font-semibold text-xs tracking-widest uppercase rounded-full shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2"
+        >
+          Explore Collection <FiArrowDown className="w-3.5 h-3.5" />
+        </button>
+        <button 
+          onClick={onExploreClick}
+          className="w-full sm:w-auto px-7 py-3 bg-white/15 hover:bg-white/25 text-white border border-white/30 backdrop-blur-md rounded-full text-xs font-semibold tracking-widest uppercase transition-all active:scale-95 shadow-sm"
+        >
+          View Lookbook
+        </button>
+      </div>
+    </motion.div>
+  </div>
+);
+
+/** ------------------------------------------------------------------
+ * PRODUCT CARD SUB-COMPONENT
+ * ------------------------------------------------------------------ */
+const ProductCard = ({ product, onClick }) => {
+  const [isLiked, setIsLiked] = useState(false);
+
+  return (
+    <motion.div 
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="group relative bg-white/90 backdrop-blur-md rounded-3xl overflow-hidden border border-[#E8DFC8] shadow-lg shadow-stone-200/40 flex flex-col h-full cursor-pointer"
+      onClick={onClick}
+    >
+      <div className="relative w-full pt-[110%] overflow-hidden bg-neutral-100">
+        <img 
+          src={product.image} 
+          alt={product.name}
+          className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+        />
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 opacity-60 group-hover:opacity-40 transition-opacity" />
+
+        <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-10">
+          <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider text-[#8C6D2B] shadow-sm">
+            {product.collection}
+          </span>
+          <button 
+            onClick={(e) => { e.stopPropagation(); setIsLiked(!isLiked); }}
+            className={`p-2 rounded-full backdrop-blur-md transition-all shadow-md ${isLiked ? 'bg-rose-500 text-white' : 'bg-white/80 text-neutral-700 hover:bg-white'}`}
+          >
+            <FiHeart className={`w-3.5 h-3.5 ${isLiked ? 'fill-current' : ''}`} />
+          </button>
+        </div>
+
+        <div className="absolute bottom-3 left-3 z-10 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/40 backdrop-blur-md text-white text-xs font-medium">
+          <FiStar className="w-3 h-3 text-amber-400 fill-amber-400" />
+          <span>{product.rating}</span>
+        </div>
+      </div>
+
+      <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
+        <div className="space-y-1.5">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#C5A059]">
+            {product.category}
+          </span>
+          <h3 className="font-serif text-base font-bold text-[#2C2A29] group-hover:text-[#C5A059] transition-colors line-clamp-1">
+            {product.name}
+          </h3>
+          <p className="text-xs text-[#6B655F] line-clamp-2 leading-relaxed font-light">
+            {product.description}
+          </p>
+        </div>
+
+        <div className="pt-3 border-t border-[#E8DFC8]/60 flex items-center justify-between">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="font-serif text-base font-bold text-[#2C2A29]">
+                ₹{product.price.toLocaleString('en-IN')}
+              </span>
+            </div>
+            {product.originalPrice && (
+              <span className="text-[11px] text-neutral-400 line-through">
+                ₹{product.originalPrice.toLocaleString('en-IN')}
+              </span>
+            )}
+          </div>
+
+          <span className="w-9 h-9 rounded-full bg-[#FAF8F5] border border-[#E8DFC8] flex items-center justify-center text-[#2C2A29] group-hover:bg-[#C5A059] group-hover:text-white group-hover:border-[#C5A059] transition-all shadow-sm">
+            <FiEye className="w-4 h-4" />
+          </span>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+/** ------------------------------------------------------------------
+ * QUICK VIEW MODAL SUB-COMPONENT
+ * ------------------------------------------------------------------ */
+const QuickViewModal = ({ product, isOpen, onClose }) => {
+  if (!isOpen || !product) return null;
+
+  return (
+    <AnimatePresence>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+        />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          className="relative z-10 w-full max-w-3xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#E8DFC8] grid grid-cols-1 md:grid-cols-2 max-h-[90vh] overflow-y-auto"
+        >
+          <button 
+            onClick={onClose}
+            className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/80 backdrop-blur-md text-neutral-800 hover:bg-neutral-100 transition shadow-md"
+          >
+            <FiX className="w-4 h-4" />
+          </button>
+
+          <div className="relative h-72 md:h-full bg-neutral-100">
+            <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+          </div>
+
+          <div className="p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div className="space-y-3">
+              <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E8DFC8] text-[10px] font-bold tracking-widest text-[#8C6D2B] uppercase">
+                {product.collection} • {product.category}
+              </span>
+              <h2 className="font-serif text-2xl font-bold text-[#2C2A29]">{product.name}</h2>
+              <p className="text-xs text-[#6B655F] leading-relaxed">{product.description}</p>
+              
+              <div className="pt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#8C6D2B] mb-2">Specifications</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  {product.specs?.map((spec, idx) => (
+                    <div key={idx} className="p-2.5 rounded-xl bg-[#FAF8F5] border border-[#E8DFC8] text-xs">
+                      <span className="text-neutral-400 block text-[10px] uppercase">{spec.label}</span>
+                      <span className="font-semibold text-[#2C2A29]">{spec.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-[#E8DFC8] flex items-center justify-between">
+              <div>
+                <span className="text-xs text-neutral-400 block">Offer Price</span>
+                <span className="font-serif text-xl font-bold text-[#2C2A29]">
+                  ₹{product.price.toLocaleString('en-IN')}
+                </span>
+              </div>
+              <button 
+                onClick={() => { alert(`Added ${product.name} to cart!`); onClose(); }}
+                className="px-6 py-3 bg-[#2C2A29] text-[#FAF8F5] rounded-full text-xs font-semibold tracking-wider uppercase shadow-lg hover:bg-[#C5A059] transition-all"
+              >
+                Acquire Piece
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </AnimatePresence>
+  );
+};
+
+/** ------------------------------------------------------------------
+ * MAIN STORE COMPONENT
+ * ------------------------------------------------------------------ */
 export const Store = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const productsSectionRef = useRef(null);
   
   const initialFilters = {
     category: 'all',
@@ -47,7 +263,10 @@ export const Store = () => {
 
   const [filters, setFilters] = useState(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
-  const productsRef = useScrollReveal();
+
+  const handleExploreClick = () => {
+    productsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const allProducts = useMemo(() => [
     {
@@ -336,18 +555,19 @@ export const Store = () => {
 
   return (
     <div className="w-full bg-[#FAF8F5] min-h-screen text-[#2C2A29] font-sans antialiased">
-      {/* Hero Section */}
+      {/* Full Size & Original Clarity Banner / Hero Section */}
       <Hero
         title="Our Masterpiece Gallery"
         subtitle="Explore our meticulously crafted jewelry lines designed for sophisticated elegance and timeless celebration."
         image={backgroud}
+        onExploreClick={handleExploreClick}
       />
 
-      {/* Main Boutique Section */}
-      <section ref={productsRef} className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+      {/* Main Boutique Grid Section */}
+      <section ref={productsSectionRef} className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           
-          {/* Mobile Filter & Bar Header */}
+          {/* Mobile Filter Trigger Bar */}
           <div className="lg:hidden flex items-center justify-between mb-6 pb-4 border-b border-[#E8DFC8]">
             <div>
               <p className="text-xs uppercase tracking-widest text-[#8C6D2B] font-semibold">
@@ -373,11 +593,10 @@ export const Store = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
             
-            {/* Desktop Modern Glassmorphic Sidebar */}
+            {/* Desktop Refine Filter Sidebar */}
             <div className="hidden lg:block lg:col-span-1">
               <div className="sticky top-28 bg-white/95 backdrop-blur-md p-6 rounded-3xl border border-[#E8DFC8] shadow-xl shadow-stone-200/50 space-y-7">
                 
-                {/* Header */}
                 <div className="flex items-center justify-between border-b border-[#E8DFC8] pb-4">
                   <div className="flex items-center gap-2">
                     <FiSliders className="text-[#C5A059]" />
@@ -393,7 +612,7 @@ export const Store = () => {
                   )}
                 </div>
 
-                {/* Search Bar */}
+                {/* Search */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-widest text-[#8C6D2B] mb-2">
                     Search Piece
@@ -418,7 +637,7 @@ export const Store = () => {
                   </div>
                 </div>
 
-                {/* Category List */}
+                {/* Categories */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-widest text-[#8C6D2B] mb-2">
                     Jewelry Category
@@ -444,7 +663,7 @@ export const Store = () => {
                   </div>
                 </div>
 
-                {/* Collection Line */}
+                {/* Collections */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-widest text-[#8C6D2B] mb-2">
                     Collection Tier
@@ -469,7 +688,7 @@ export const Store = () => {
                   </div>
                 </div>
 
-                {/* Dual Price Slider */}
+                {/* Price Slider */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <label className="text-[11px] font-bold uppercase tracking-widest text-[#8C6D2B]">
@@ -519,10 +738,9 @@ export const Store = () => {
               </div>
             </div>
 
-            {/* Main Products Grid Column */}
+            {/* Products Grid Column */}
             <div className="lg:col-span-3 space-y-6">
               
-              {/* Desktop Bar Display */}
               <div className="hidden lg:flex justify-between items-center bg-white/85 backdrop-blur-md px-6 py-4 rounded-2xl border border-[#E8DFC8] shadow-sm">
                 <div className="flex items-center gap-2">
                   <FiGrid className="text-[#C5A059]" />
@@ -531,7 +749,6 @@ export const Store = () => {
                   </p>
                 </div>
 
-                {/* Active Filter Chips */}
                 {activeFilterCount > 0 && (
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-[10px] uppercase font-bold text-[#8C6D2B]">Active:</span>
@@ -551,7 +768,7 @@ export const Store = () => {
                 )}
               </div>
 
-              {/* Grid Render */}
+              {/* Product Grid Render */}
               {filteredProducts.length > 0 ? (
                 <motion.div 
                   layout
@@ -602,7 +819,7 @@ export const Store = () => {
         </div>
       </section>
 
-      {/* Mobile Glass Drawer Modal */}
+      {/* Mobile Drawer Filter Modal */}
       <AnimatePresence>
         {isMobileFilterOpen && (
           <div className="fixed inset-0 z-50 lg:hidden flex justify-end">
@@ -621,8 +838,6 @@ export const Store = () => {
               className="relative z-10 w-full max-w-xs bg-white h-full p-6 shadow-2xl flex flex-col justify-between overflow-y-auto"
             >
               <div className="space-y-6">
-                
-                {/* Header */}
                 <div className="flex items-center justify-between pb-4 border-b border-[#E8DFC8]">
                   <h3 className="font-serif text-lg font-bold text-[#2C2A29]">Filters & Options</h3>
                   <button 
@@ -633,7 +848,6 @@ export const Store = () => {
                   </button>
                 </div>
 
-                {/* Mobile Search */}
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-[#8C6D2B] mb-2">Search</label>
                   <input
@@ -645,7 +859,6 @@ export const Store = () => {
                   />
                 </div>
 
-                {/* Mobile Categories */}
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-[#8C6D2B] mb-2">Category</label>
                   <select
@@ -661,7 +874,6 @@ export const Store = () => {
                   </select>
                 </div>
 
-                {/* Mobile Collections */}
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-[#8C6D2B] mb-2">Collection Tier</label>
                   <select
@@ -677,7 +889,6 @@ export const Store = () => {
                   </select>
                 </div>
 
-                {/* Mobile Price Range */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <label className="text-[10px] font-bold uppercase tracking-wider text-[#8C6D2B]">Max Price</label>
@@ -701,7 +912,6 @@ export const Store = () => {
                   />
                 </div>
 
-                {/* Mobile Sort */}
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-[#8C6D2B] mb-2">Sort By</label>
                   <select
@@ -717,7 +927,6 @@ export const Store = () => {
                 </div>
               </div>
 
-              {/* Drawer Controls */}
               <div className="pt-6 border-t border-[#E8DFC8] flex gap-3">
                 <button
                   onClick={clearAllFilters}
