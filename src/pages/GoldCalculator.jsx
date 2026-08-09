@@ -578,7 +578,7 @@ export const GoldCalculator = () => {
 
   // Format Copy/Share Text
   const getSummaryText = () => {
-    return `*Anand Jewellers - Jewellery Price Estimate*
+    return `*shreeji Jewellers - Jewellery Price Estimate*
 Date: ${dailyRates.date}
 Purity: ${selectedPurity}K Gold
 Weight: ${inputs.weight}g
@@ -589,7 +589,7 @@ Gold Rate: ${formatINR(currentGoldRate)}/g
 ${results.stoneCost > 0 ? `• Stone Charges: ${formatINR(results.stoneCost)}\n` : ''}${results.discountAmount > 0 ? `• Discount: -${formatINR(results.discountAmount)}\n` : ''}• GST (${inputs.gstPercentage}%): ${formatINR(results.gst)}
 *Estimated Total: ${formatINR(results.finalPrice)}*
 
-Note: Please confirm the final price with Anand Jewellers before purchase.`;
+Note: Please confirm the final price with shreeji Jewellers before purchase.`;
   };
 
   // Action Handlers
@@ -627,7 +627,7 @@ Note: Please confirm the final price with Anand Jewellers before purchase.`;
         <div className="print:hidden">
           <Hero
             title="Today's Gold & Silver Rates"
-            subtitle="Transparent daily rates and instant jewellery price calculator from Anand Jewellers"
+            subtitle="Transparent daily rates and instant jewellery price calculator from shreeji Jewellers"
             image={cal}
           />
         </div>
